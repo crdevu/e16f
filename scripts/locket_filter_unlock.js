@@ -1,6 +1,9 @@
 // ============================================================
 // Locket AI Filter Modifier, Unblur & Gold Badge
-// FIX: Xử lý changeProfileInfo ở cả request và response
+// GỘP LOGIC: xử lý changeProfileInfo + generateFilteredImage + unlock
+// KHÔNG xung đột với Locket_photobooth.js nếu chỉ bật MỘT script này
+// cho generateFilteredImage. Nếu bật cả hai, script này chạy SAU và
+// sẽ thấy response đã được Locket_photobooth.js xử lý (idempotent).
 // ============================================================
 
 function applyGoldBadge(target) {
@@ -21,6 +24,7 @@ function applyGoldBadge(target) {
 }
 
 if (typeof $response === "undefined") {
+    // ===== REQUEST PHASE =====
     const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
 
     if (reqUrl.includes("changeProfileInfo")) {
@@ -46,6 +50,7 @@ if (typeof $response === "undefined") {
     $done({ headers: headers });
 }
 else {
+    // ===== RESPONSE PHASE =====
     const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
 
     if (reqUrl.includes("changeProfileInfo")) {
@@ -99,6 +104,7 @@ else {
         return;
     }
 
+    // ===== Transform chung cho các endpoint khác =====
     let body = $response.body;
     let status = $response.status || $response.statusCode || 200;
 
