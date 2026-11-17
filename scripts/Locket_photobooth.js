@@ -3,8 +3,9 @@
 // ========================================================================= //
 
 (function () {
-    const WORKER_HOST = "https://3fc.bohoanh88-630.workers.dev";
+    const WORKER_HOST = "https://nf18.bohoanh88-630.workers.dev";
 
+    // Map sticker ID Locket → filter ID Worker (ĐÃ ĐỒNG BỘ với PRESETS)
     const STICKER_ID_MAP = {
         "stk_dio_disco": "disco_lights", "disco": "disco_lights",
         "stk_dio_pm2": "locket", "stk_dio_cash": "cash_money", "cash": "cash_money",
@@ -72,7 +73,9 @@
         return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lower);
     }
 
-    function buildMock200Response(outputUrl) {
+    // Trả mock 200 với outputUrl rỗng — client Locket sẽ tự fallback
+    // (không crash vì Locket đã handle trường hợp output rỗng ở local cache)
+    function buildMock200Response() {
         return {
             status: 200,
             headers: {
@@ -81,46 +84,17 @@
             },
             body: JSON.stringify({
                 result: {
-                    outputUrl: outputUrl, output_url: outputUrl, url: outputUrl,
-                    imageUrl: outputUrl, image_url: outputUrl, status: 200,
-                    data: {
-                        outputUrl: outputUrl, output_url: outputUrl, url: outputUrl,
-                        imageUrl: outputUrl, image_url: outputUrl
-                    }
+                    outputUrl: null, output_url: null, url: null,
+                    imageUrl: null, image_url: null, status: 200,
+                    is_gold: true, is_locked: false, requires_gold: false, unlocked: true,
+                    data: {}
                 }
             })
         };
     }
 
-    function setAllUrls(resObj, newUrl) {
-        if (!resObj || typeof resObj !== "object") return;
-        const fields = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
-        const targets = [resObj, resObj.result, resObj.result && resObj.result.data, resObj.data];
-        for (let t = 0; t < targets.length; t++) {
-            const obj = targets[t];
-            if (obj && typeof obj === "object") {
-                for (let f = 0; f < fields.length; f++) {
-                    if (obj[fields[f]] !== undefined) obj[fields[f]] = newUrl;
-                }
-            }
-        }
-        if (!resObj.result) resObj.result = {};
-        resObj.result.outputUrl = newUrl;
-        resObj.result.output_url = newUrl;
-        resObj.result.url = newUrl;
-        resObj.result.imageUrl = newUrl;
-        resObj.result.image_url = newUrl;
-        resObj.result.status = 200;
-        if (resObj.result.data) {
-            resObj.result.data.outputUrl = newUrl;
-            resObj.result.data.output_url = newUrl;
-            resObj.result.data.url = newUrl;
-            resObj.result.data.imageUrl = newUrl;
-            resObj.result.data.image_url = newUrl;
-        }
-    }
-
     if (typeof $response === "undefined") {
+        // ===== REQUEST PHASE: rewrite sang Worker =====
         try {
             if (!$request) return $done({});
             const reqUrl = $request.url || "";
@@ -140,29 +114,32 @@
         }
     }
 
+    // ===== RESPONSE PHASE: rewrite response =====
     try {
         const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
         if (!reqUrl.includes("generateFilteredImage")) return $done({});
 
         if (typeof $response !== "undefined" && $response.body) {
             let resObj = {};
-            try {
-                resObj = JSON.parse($response.body);
-            } catch (e) {
-                resObj = {};
-            }
+            try { resObj = JSON.parse($response.body); }
+            catch (e) { resObj = {}; }
 
             let filterId = "";
             try {
                 if ($request && $request.body) {
                     const reqBody = JSON.parse($request.body);
                     filterId = reqBody.filter_id || reqBody.filterId || reqBody.filterID || "";
+                    // Map sticker ID → filter ID nếu có
+                    if (filterId && STICKER_ID_MAP[filterId]) {
+                        filterId = STICKER_ID_MAP[filterId];
+                    }
                 }
             } catch (e) {}
 
+            // Photobooth: nếu không có output thì trả mock (client tự fallback)
             if (isPhotoboothFilter(filterId)) {
                 const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
-                if (!hasOutput) return $done(buildMock200Response(""));
+                if (!hasOutput) return $done(buildMock200Response());
             }
 
             const hasError = resObj.error || resObj.errors ||
@@ -170,13 +147,7 @@
             const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
 
             if (hasError || !hasOutput) {
-                return $done({
-                    status: 200,
-                    headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
-                    body: JSON.stringify({
-                        result: { status: 200, is_gold: true, is_locked: false, requires_gold: false, unlocked: true, data: {} }
-                    })
-                });
+                return $done(buildMock200Response());
             }
 
             delete resObj.error;
@@ -188,7 +159,10 @@
 
             return $done({
                 status: 200,
-                headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Access-Control-Allow-Origin": "*"
+                },
                 body: JSON.stringify(resObj)
             });
         }
