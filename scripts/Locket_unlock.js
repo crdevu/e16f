@@ -509,7 +509,7 @@ obj.entries.photobooth_frames_config = JSON.stringify({
     default_layout: "4cut_vertical",
     allow_custom_prompt: true,
     ai_generation_enabled: true,
-    worker_endpoint: "https://3fc.bohoanh88-630.workers.dev/generateFilteredImage"
+    worker_endpoint: "https://nf18.bohoanh88-630.workers.dev/generateFilteredImage"
 });
 
 // 4.3 — Ghi danh sách ID vào photobooth_frame_ids (một số build Locket đọc key này)
@@ -617,7 +617,7 @@ obj.entries.camera_filters_config = JSON.stringify({
     enabled: true,
     gold_only: false,
     max_count: 999,
-    worker_endpoint: "https://3fc.bohoanh88-630.workers.dev/generateFilteredImage"
+    worker_endpoint: "https://nf18.bohoanh88-630.workers.dev/generateFilteredImage"
 });
 
 // ============================================================
