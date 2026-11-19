@@ -1,9 +1,9 @@
 // ========= Locket Photobooth 4-Shot Engine & AI Filter Modifier ========= //
-// FIX: không chặn request khi parse lỗi, luôn forward nếu không match
+// FULL LOGIC: 4-shot engine + fallback + không chặn script khác
 // ========================================================================= //
 
 (function () {
-    const WORKER_HOST = "https://nf18.bohoanh88-630.workers.dev";
+    const WORKER_HOST = "https://3fc.bohoanh88-630.workers.dev";
 
     const STICKER_ID_MAP = {
         "stk_dio_disco": "disco_lights", "disco": "disco_lights",
@@ -43,8 +43,19 @@
         "stk_dio_influencer": "influencer", "influencer": "influencer"
     };
 
-    function log(msg) {
-        try { console.log("[Locket_PB] " + msg); } catch (e) {}
+    function storeRead(key) {
+        try {
+            if (typeof $persistentStore !== "undefined") return $persistentStore.read(key) || "";
+            if (typeof $prefs !== "undefined") return $prefs.valueForKey(key) || "";
+        } catch (e) {}
+        return "";
+    }
+
+    function storeWrite(key, val) {
+        try {
+            if (typeof $persistentStore !== "undefined") $persistentStore.write(String(val), key);
+            else if (typeof $prefs !== "undefined") $prefs.setValueForKey(String(val), key);
+        } catch (e) {}
     }
 
     function isPhotoboothFilter(fid) {
@@ -54,7 +65,14 @@
         return /photobooth_4cut|photobooth_cute|pb_holo_4cut|pb_scrapbook_ripped_4cut|pb_ripped_paper_4cut|pb_denim_ripped_2x2|frame_classic_pb|frame_berry_days|frame_happy_snap|frame_sky_diary|pb_strawberry|pb_vintage|pb_galaxy|photoboot|4cut/i.test(lower);
     }
 
-    function buildMock200Response() {
+    function isOverlayFrameFilter(fid) {
+        if (!fid) return false;
+        if (isPhotoboothFilter(fid)) return false;
+        const lower = String(fid).toLowerCase();
+        return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lower);
+    }
+
+    function buildMock200Response(outputUrl) {
         return {
             status: 200,
             headers: {
@@ -63,40 +81,50 @@
             },
             body: JSON.stringify({
                 result: {
-                    outputUrl: null, output_url: null, url: null,
-                    imageUrl: null, image_url: null, status: 200,
-                    is_gold: true, is_locked: false, requires_gold: false, unlocked: true,
-                    data: {}
+                    outputUrl: outputUrl, output_url: outputUrl, url: outputUrl,
+                    imageUrl: outputUrl, image_url: outputUrl, status: 200,
+                    data: {
+                        outputUrl: outputUrl, output_url: outputUrl, url: outputUrl,
+                        imageUrl: outputUrl, image_url: outputUrl
+                    }
                 }
             })
         };
     }
 
-    // ============================================================
-    // REQUEST PHASE
-    // ============================================================
+    function setAllUrls(resObj, newUrl) {
+        if (!resObj || typeof resObj !== "object") return;
+        const fields = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
+        const targets = [resObj, resObj.result, resObj.result && resObj.result.data, resObj.data];
+        for (let t = 0; t < targets.length; t++) {
+            const obj = targets[t];
+            if (obj && typeof obj === "object") {
+                for (let f = 0; f < fields.length; f++) {
+                    if (obj[fields[f]] !== undefined) obj[fields[f]] = newUrl;
+                }
+            }
+        }
+        if (!resObj.result) resObj.result = {};
+        resObj.result.outputUrl = newUrl;
+        resObj.result.output_url = newUrl;
+        resObj.result.url = newUrl;
+        resObj.result.imageUrl = newUrl;
+        resObj.result.image_url = newUrl;
+        resObj.result.status = 200;
+        if (resObj.result.data) {
+            resObj.result.data.outputUrl = newUrl;
+            resObj.result.data.output_url = newUrl;
+            resObj.result.data.url = newUrl;
+            resObj.result.data.imageUrl = newUrl;
+            resObj.result.data.image_url = newUrl;
+        }
+    }
+
     if (typeof $response === "undefined") {
         try {
-            if (!$request) { log("no $request"); return $done({}); }
+            if (!$request) return $done({});
             const reqUrl = $request.url || "";
-            log("REQ url=" + reqUrl);
-
-            if (!reqUrl.includes("generateFilteredImage")) {
-                log("not generateFilteredImage, pass through");
-                return $done({});
-            }
-
-            // Parse body để log filter_id (không bắt buộc)
-            let filterId = "";
-            try {
-                if ($request.body) {
-                    const reqBody = JSON.parse($request.body);
-                    filterId = reqBody.filter_id || reqBody.filterId || reqBody.filterID || "";
-                    log("filter_id=" + filterId);
-                }
-            } catch (e) {
-                log("body parse err: " + e.message);
-            }
+            if (!reqUrl.includes("generateFilteredImage")) return $done({});
 
             const targetUrl = WORKER_HOST + "/generateFilteredImage?module=Locket_YouTube";
             let headers = Object.assign({}, ($request && $request.headers) || {});
@@ -106,33 +134,22 @@
             delete headers["Content-Length"];
             delete headers["content-length"];
 
-            log("rewrite to " + targetUrl);
             return $done({ url: targetUrl, headers: headers });
         } catch (e) {
-            log("req err: " + e.message);
             return $done({});
         }
     }
 
-    // ============================================================
-    // RESPONSE PHASE
-    // ============================================================
     try {
         const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
-        log("RESP url=" + reqUrl);
-
-        if (!reqUrl.includes("generateFilteredImage")) {
-            return $done({});
-        }
+        if (!reqUrl.includes("generateFilteredImage")) return $done({});
 
         if (typeof $response !== "undefined" && $response.body) {
             let resObj = {};
             try {
                 resObj = JSON.parse($response.body);
             } catch (e) {
-                log("resp parse err: " + e.message);
-                // Không parse được → trả mock 200 thay vì để Locket báo lỗi
-                return $done(buildMock200Response());
+                resObj = {};
             }
 
             let filterId = "";
@@ -140,20 +157,12 @@
                 if ($request && $request.body) {
                     const reqBody = JSON.parse($request.body);
                     filterId = reqBody.filter_id || reqBody.filterId || reqBody.filterID || "";
-                    if (filterId && STICKER_ID_MAP[filterId]) {
-                        filterId = STICKER_ID_MAP[filterId];
-                    }
                 }
             } catch (e) {}
 
-            log("resp filter_id=" + filterId);
-
             if (isPhotoboothFilter(filterId)) {
                 const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
-                if (!hasOutput) {
-                    log("photobooth no output, mock 200");
-                    return $done(buildMock200Response());
-                }
+                if (!hasOutput) return $done(buildMock200Response(""));
             }
 
             const hasError = resObj.error || resObj.errors ||
@@ -161,8 +170,13 @@
             const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
 
             if (hasError || !hasOutput) {
-                log("hasError or no output, mock 200");
-                return $done(buildMock200Response());
+                return $done({
+                    status: 200,
+                    headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
+                    body: JSON.stringify({
+                        result: { status: 200, is_gold: true, is_locked: false, requires_gold: false, unlocked: true, data: {} }
+                    })
+                });
             }
 
             delete resObj.error;
@@ -172,19 +186,13 @@
                 delete resObj.result.errors;
             }
 
-            log("return real output");
             return $done({
                 status: 200,
-                headers: {
-                    "Content-Type": "application/json; charset=utf-8",
-                    "Access-Control-Allow-Origin": "*"
-                },
+                headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
                 body: JSON.stringify(resObj)
             });
         }
-    } catch (e) {
-        log("resp err: " + e.message);
-    }
+    } catch (e) {}
 
     return $done({});
 })();

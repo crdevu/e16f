@@ -1,8 +1,4 @@
-/***********************************************
-> deleteHeader by srjull
-***********************************************/	
-
-const version = 'V2.0.0';
+const version = 'V1.0.0';
 
 const headersToStrip = [
   'x-revenuecat-etag',

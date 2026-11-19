@@ -1,8 +1,3 @@
-// ============================================================
-// Locket AI Filter Modifier, Unblur & Gold Badge
-// FIX: không can thiệp generateFilteredImage (đã có Locket_photobooth.js)
-// ============================================================
-
 function applyGoldBadge(target) {
     if (!target || typeof target !== "object") return;
     target.badge = "locket_gold";
@@ -21,7 +16,6 @@ function applyGoldBadge(target) {
 }
 
 if (typeof $response === "undefined") {
-    // ===== REQUEST PHASE =====
     const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
 
     if (reqUrl.includes("changeProfileInfo")) {
@@ -47,7 +41,6 @@ if (typeof $response === "undefined") {
     $done({ headers: headers });
 }
 else {
-    // ===== RESPONSE PHASE =====
     const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
 
     if (reqUrl.includes("changeProfileInfo")) {
@@ -62,12 +55,45 @@ else {
         return;
     }
 
-    // KHÔNG can thiệp generateFilteredImage — đã có Locket_photobooth.js
     if (reqUrl.includes("generateFilteredImage")) {
-        return $done({});
+        let body = $response.body;
+        let status = $response.status || $response.statusCode || 200;
+
+        if (status >= 400) {
+            $done({
+                status: 200,
+                headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
+                body: JSON.stringify({
+                    result: { status: 200, is_gold: true, is_locked: false, requires_gold: false, unlocked: true, data: {} }
+                })
+            });
+            return;
+        }
+
+        if (body && typeof body === "string") {
+            try {
+                let obj = JSON.parse(body);
+                delete obj.error;
+                delete obj.errors;
+                if (obj.result) {
+                    delete obj.result.error;
+                    delete obj.result.errors;
+                }
+                body = JSON.stringify(obj);
+            } catch (e) {}
+        }
+
+        $done({
+            status: 200,
+            headers: Object.assign({}, ($response && $response.headers) || {}, {
+                "Content-Type": "application/json; charset=utf-8",
+                "Access-Control-Allow-Origin": "*"
+            }),
+            body: body
+        });
+        return;
     }
 
-    // ===== Transform chung =====
     let body = $response.body;
     let status = $response.status || $response.statusCode || 200;
 
