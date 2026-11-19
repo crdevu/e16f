@@ -1,9 +1,6 @@
 // ============================================================
 // Locket AI Filter Modifier, Unblur & Gold Badge
-// GỘP LOGIC: xử lý changeProfileInfo + generateFilteredImage + unlock
-// KHÔNG xung đột với Locket_photobooth.js nếu chỉ bật MỘT script này
-// cho generateFilteredImage. Nếu bật cả hai, script này chạy SAU và
-// sẽ thấy response đã được Locket_photobooth.js xử lý (idempotent).
+// FIX: không can thiệp generateFilteredImage (đã có Locket_photobooth.js)
 // ============================================================
 
 function applyGoldBadge(target) {
@@ -65,46 +62,12 @@ else {
         return;
     }
 
+    // KHÔNG can thiệp generateFilteredImage — đã có Locket_photobooth.js
     if (reqUrl.includes("generateFilteredImage")) {
-        let body = $response.body;
-        let status = $response.status || $response.statusCode || 200;
-
-        if (status >= 400) {
-            $done({
-                status: 200,
-                headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
-                body: JSON.stringify({
-                    result: { status: 200, is_gold: true, is_locked: false, requires_gold: false, unlocked: true, data: {} }
-                })
-            });
-            return;
-        }
-
-        if (body && typeof body === "string") {
-            try {
-                let obj = JSON.parse(body);
-                delete obj.error;
-                delete obj.errors;
-                if (obj.result) {
-                    delete obj.result.error;
-                    delete obj.result.errors;
-                }
-                body = JSON.stringify(obj);
-            } catch (e) {}
-        }
-
-        $done({
-            status: 200,
-            headers: Object.assign({}, ($response && $response.headers) || {}, {
-                "Content-Type": "application/json; charset=utf-8",
-                "Access-Control-Allow-Origin": "*"
-            }),
-            body: body
-        });
-        return;
+        return $done({});
     }
 
-    // ===== Transform chung cho các endpoint khác =====
+    // ===== Transform chung =====
     let body = $response.body;
     let status = $response.status || $response.statusCode || 200;
 
