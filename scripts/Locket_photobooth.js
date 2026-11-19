@@ -1,11 +1,10 @@
 // ========= Locket Photobooth 4-Shot Engine & AI Filter Modifier ========= //
-// FULL LOGIC: 4-shot engine + fallback + không chặn script khác
+// FIX: không chặn request khi parse lỗi, luôn forward nếu không match
 // ========================================================================= //
 
 (function () {
     const WORKER_HOST = "https://nf18.bohoanh88-630.workers.dev";
 
-    // Map sticker ID Locket → filter ID Worker (ĐÃ ĐỒNG BỘ với PRESETS)
     const STICKER_ID_MAP = {
         "stk_dio_disco": "disco_lights", "disco": "disco_lights",
         "stk_dio_pm2": "locket", "stk_dio_cash": "cash_money", "cash": "cash_money",
@@ -44,19 +43,8 @@
         "stk_dio_influencer": "influencer", "influencer": "influencer"
     };
 
-    function storeRead(key) {
-        try {
-            if (typeof $persistentStore !== "undefined") return $persistentStore.read(key) || "";
-            if (typeof $prefs !== "undefined") return $prefs.valueForKey(key) || "";
-        } catch (e) {}
-        return "";
-    }
-
-    function storeWrite(key, val) {
-        try {
-            if (typeof $persistentStore !== "undefined") $persistentStore.write(String(val), key);
-            else if (typeof $prefs !== "undefined") $prefs.setValueForKey(String(val), key);
-        } catch (e) {}
+    function log(msg) {
+        try { console.log("[Locket_PB] " + msg); } catch (e) {}
     }
 
     function isPhotoboothFilter(fid) {
@@ -66,15 +54,6 @@
         return /photobooth_4cut|photobooth_cute|pb_holo_4cut|pb_scrapbook_ripped_4cut|pb_ripped_paper_4cut|pb_denim_ripped_2x2|frame_classic_pb|frame_berry_days|frame_happy_snap|frame_sky_diary|pb_strawberry|pb_vintage|pb_galaxy|photoboot|4cut/i.test(lower);
     }
 
-    function isOverlayFrameFilter(fid) {
-        if (!fid) return false;
-        if (isPhotoboothFilter(fid)) return false;
-        const lower = String(fid).toLowerCase();
-        return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lower);
-    }
-
-    // Trả mock 200 với outputUrl rỗng — client Locket sẽ tự fallback
-    // (không crash vì Locket đã handle trường hợp output rỗng ở local cache)
     function buildMock200Response() {
         return {
             status: 200,
@@ -93,12 +72,31 @@
         };
     }
 
+    // ============================================================
+    // REQUEST PHASE
+    // ============================================================
     if (typeof $response === "undefined") {
-        // ===== REQUEST PHASE: rewrite sang Worker =====
         try {
-            if (!$request) return $done({});
+            if (!$request) { log("no $request"); return $done({}); }
             const reqUrl = $request.url || "";
-            if (!reqUrl.includes("generateFilteredImage")) return $done({});
+            log("REQ url=" + reqUrl);
+
+            if (!reqUrl.includes("generateFilteredImage")) {
+                log("not generateFilteredImage, pass through");
+                return $done({});
+            }
+
+            // Parse body để log filter_id (không bắt buộc)
+            let filterId = "";
+            try {
+                if ($request.body) {
+                    const reqBody = JSON.parse($request.body);
+                    filterId = reqBody.filter_id || reqBody.filterId || reqBody.filterID || "";
+                    log("filter_id=" + filterId);
+                }
+            } catch (e) {
+                log("body parse err: " + e.message);
+            }
 
             const targetUrl = WORKER_HOST + "/generateFilteredImage?module=Locket_YouTube";
             let headers = Object.assign({}, ($request && $request.headers) || {});
@@ -108,38 +106,54 @@
             delete headers["Content-Length"];
             delete headers["content-length"];
 
+            log("rewrite to " + targetUrl);
             return $done({ url: targetUrl, headers: headers });
         } catch (e) {
+            log("req err: " + e.message);
             return $done({});
         }
     }
 
-    // ===== RESPONSE PHASE: rewrite response =====
+    // ============================================================
+    // RESPONSE PHASE
+    // ============================================================
     try {
         const reqUrl = (typeof $request !== "undefined" && $request.url) ? $request.url : "";
-        if (!reqUrl.includes("generateFilteredImage")) return $done({});
+        log("RESP url=" + reqUrl);
+
+        if (!reqUrl.includes("generateFilteredImage")) {
+            return $done({});
+        }
 
         if (typeof $response !== "undefined" && $response.body) {
             let resObj = {};
-            try { resObj = JSON.parse($response.body); }
-            catch (e) { resObj = {}; }
+            try {
+                resObj = JSON.parse($response.body);
+            } catch (e) {
+                log("resp parse err: " + e.message);
+                // Không parse được → trả mock 200 thay vì để Locket báo lỗi
+                return $done(buildMock200Response());
+            }
 
             let filterId = "";
             try {
                 if ($request && $request.body) {
                     const reqBody = JSON.parse($request.body);
                     filterId = reqBody.filter_id || reqBody.filterId || reqBody.filterID || "";
-                    // Map sticker ID → filter ID nếu có
                     if (filterId && STICKER_ID_MAP[filterId]) {
                         filterId = STICKER_ID_MAP[filterId];
                     }
                 }
             } catch (e) {}
 
-            // Photobooth: nếu không có output thì trả mock (client tự fallback)
+            log("resp filter_id=" + filterId);
+
             if (isPhotoboothFilter(filterId)) {
                 const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
-                if (!hasOutput) return $done(buildMock200Response());
+                if (!hasOutput) {
+                    log("photobooth no output, mock 200");
+                    return $done(buildMock200Response());
+                }
             }
 
             const hasError = resObj.error || resObj.errors ||
@@ -147,6 +161,7 @@
             const hasOutput = resObj.result && (resObj.result.outputUrl || resObj.result.output_url || resObj.result.url);
 
             if (hasError || !hasOutput) {
+                log("hasError or no output, mock 200");
                 return $done(buildMock200Response());
             }
 
@@ -157,6 +172,7 @@
                 delete resObj.result.errors;
             }
 
+            log("return real output");
             return $done({
                 status: 200,
                 headers: {
@@ -166,7 +182,9 @@
                 body: JSON.stringify(resObj)
             });
         }
-    } catch (e) {}
+    } catch (e) {
+        log("resp err: " + e.message);
+    }
 
     return $done({});
 })();
