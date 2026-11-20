@@ -1,3 +1,8 @@
+// ============================================================
+// Locket AI Filter Modifier, Unblur & Gold Badge
+// FIX: Xử lý changeProfileInfo ở cả request và response
+// ============================================================
+
 function applyGoldBadge(target) {
     if (!target || typeof target !== "object") return;
     target.badge = "locket_gold";

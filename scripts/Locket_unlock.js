@@ -1,7 +1,10 @@
-var ua = (typeof $request !== "undefined" && $request && $request.headers)
-    ? ($request.headers["User-Agent"] || $request.headers["user-agent"] || "")
-    : "";
+// ============================================================
+// Locket Remote Config Rewrite — FULL UNLOCK
+// Đảo thứ tự: AI 3D → Photobooth → Frames → mặc định
+// Xoá prompt filter mặc định, giữ prompt ID cho AI
+// ============================================================
 
+var ua = (typeof $request !== "undefined" && $request && $request.headers) ? ($request.headers["User-Agent"] || $request.headers["user-agent"] || "") : "";
 var obj = {};
 try {
     obj = JSON.parse($response.body);
@@ -12,7 +15,6 @@ try {
 if (!obj || typeof obj !== "object") {
     obj = {};
 }
-
 obj.state = "UPDATE";
 obj.templateVersion = String(Date.now());
 obj.Attention = "Congratulations! Please do not use them for commercial purposes!";
@@ -72,7 +74,7 @@ Object.assign(obj.entries, {
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
-        feature_set: [{ title: "Wishing you a pleasant experience", body: "", imageURL: "https://cdn.upanhlaylink.com/i/GSfYXmKd.png" }],
+        feature_set: [{ title: "Wishing you a pleasant experience", body: "csrjull.dev", imageURL: "https://cdn.upanhlaylink.com/i/GSfYXmKd.png" }],
         primary_button_title: "Xong", campaign: "locket_gold_welcome_v3",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true
     }),
@@ -267,7 +269,7 @@ Object.assign(obj.entries, {
 });
 
 // ============================================================
-// 4. OVERLAY & CAPTIONS (tối giản, bỏ icon Unicode)
+// 4. OVERLAY & CAPTIONS
 // ============================================================
 Object.assign(obj.entries, {
     overlay_navigator_enabled: "true",
@@ -284,7 +286,7 @@ Object.assign(obj.entries, {
     ]),
     overlay_items: JSON.stringify([
         {
-            section: "General",
+            section: "🎨 General",
             items: [
                 { overlay_id: "caption:standard", source: "local", caption: { type: "standard" } },
                 { overlay_id: "caption:link", source: "local", caption: { type: "link" }, overlay_type: "caption" },
@@ -304,41 +306,41 @@ Object.assign(obj.entries, {
             ]
         },
         {
-            section: "Holiday Caption",
+            section: "🎨 Holiday Caption",
             items: [
-                { overlay_id: "caption:halloween_2026", source: "remote", caption: { background: { colors: ["#150804", "#C8540D"] }, max_lines: 1, text: "Halloween", localized_text: { en: "Halloween", vn: "Halloween" }, text_color: "#FFB182", type: "static_content" } },
-                { overlay_id: "caption:autumn_2026", source: "remote", caption: { background: { colors: ["#FFE0A0", "#F6A53A"] }, max_lines: 1, text: "Hello Autumn", localized_text: { en: "Hello Autumn", vn: "Xin chào Mùa Thu" }, text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:christmas_eve_2026", source: "remote", caption: { background: { colors: ["#2FA85F", "#176B3A"] }, max_lines: 1, text: "Merry Christmas Eve", localized_text: { en: "Merry Christmas Eve", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:christmas_day_2026", source: "remote", caption: { background: { colors: ["#E53935", "#A81818"] }, max_lines: 1, text: "Merry Christmas", localized_text: { en: "Merry Christmas", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:new_years_eve_2027", source: "remote", caption: { background: { colors: ["#FFC64B", "#FFEDBF"] }, max_lines: 1, text: "Hello 2027!", localized_text: { en: "Hello 2027!", vn: "Xin chào 2027!" }, text_color: "#643F00", type: "static_content" } },
-                { overlay_id: "caption:new_years_day_2027", source: "remote", caption: { background: { colors: ["#3B00EC", "#823FFF"] }, max_lines: 1, text: "Hello 2027!", localized_text: { en: "Hello 2027!", vn: "Xin chào 2027!" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:halloween_2026", source: "remote", caption: { background: { colors: ["#150804", "#C8540D"] }, icon: { data: "🎃", type: "emoji" }, max_lines: 1, text: "Halloween", localized_text: { en: "Halloween", vn: "Halloween" }, text_color: "#FFB182", type: "static_content" } },
+                { overlay_id: "caption:autumn_2026", source: "remote", caption: { background: { colors: ["#FFE0A0", "#F6A53A"] }, icon: { data: "🍂", type: "emoji" }, max_lines: 1, text: "Xin chào Mùa Thu", localized_text: { en: "Hello Autumn", vn: "Xin chào Mùa Thu" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:christmas_eve_2026", source: "remote", caption: { background: { colors: ["#2FA85F", "#176B3A"] }, icon: { data: "🕯️", type: "emoji" }, max_lines: 1, text: "Giáng sinh an lành", localized_text: { en: "Merry Christmas Eve", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:christmas_day_2026", source: "remote", caption: { background: { colors: ["#E53935", "#A81818"] }, icon: { data: "🎄", type: "emoji" }, max_lines: 1, text: "Giáng sinh an lành", localized_text: { en: "Merry Christmas", vn: "Giáng sinh an lành" }, text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:new_years_eve_2027", source: "remote", caption: { background: { colors: ["#FFC64B", "#FFEDBF"] }, icon: { data: "🥂", type: "emoji" }, max_lines: 1, text: "Xin chào 2027!", localized_text: { en: "Hello 2027!", vn: "Xin chào 2027!" }, text_color: "#643F00", type: "static_content" } },
+                { overlay_id: "caption:new_years_day_2027", source: "remote", caption: { background: { colors: ["#3B00EC", "#823FFF"] }, icon: { data: "💫", type: "emoji" }, max_lines: 1, text: "Xin chào 2027!", localized_text: { en: "Hello 2027!", vn: "Xin chào 2027!" }, text_color: "#FFFFFF", type: "static_content" } },
                 { overlay_id: "caption:new_years_day_2027_alternate", source: "remote", caption: { background: { colors: ["#FF0062", "#FF783F"] }, max_lines: 1, text: "2027", localized_text: { en: "2027", vn: "2027" }, text_color: "#FFFFFF", type: "static_content" } },
                 { overlay_id: "caption:no_memory", source: "remote", caption: { background: { image: { type: "image", data: "https://public.locketcamera.com/locket-public/overlays/forgotten_island/forgotten_island_bg.png", source: "url" }, colors: ["#1A1A2E", "#16213E"] }, max_lines: 1, text: "NO MEMORY LEFT BEHIND", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Decorative by Locket",
+            section: "🎨 Decorative by Locket",
             items: [
-                { overlay_id: "caption:toi_nho_em", source: "remote", caption: { background: { colors: ["#FFFFFF", "#6D9EEB"] }, max_lines: 1, text: "I miss you", localized_text: { en: "I miss you", vn: "Tôi nhớ em" }, text_color: "#000000E6", type: "static_content" } },
-                { overlay_id: "caption:party_time", source: "remote", caption: { background: { colors: ["#5EFFF5", "#FCFF57"] }, max_lines: 1, text: "Party Time!", localized_text: { en: "Party Time!", vn: "Party Time!" }, text_color: "#000000E6", type: "static_content" } },
-                { overlay_id: "caption:good_morning", source: "remote", daily_start_hour: 5, daily_end_hour: 10, caption: { background: { colors: ["#EF7402", "#EABF0F"] }, max_lines: 1, text: "Good morning", localized_text: { en: "Good morning", vn: "Chào buổi sáng" }, text_color: "#FFFFFFE5", type: "static_content" } },
-                { overlay_id: "caption:goodnight", source: "remote", daily_start_hour: 19.5, daily_end_hour: 24, caption: { background: { colors: ["#370C6F", "#575CD4"] }, max_lines: 1, text: "Goodnight", localized_text: { en: "Goodnight", vn: "Chúc ngủ ngon" }, text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:miss_you", source: "remote", caption: { background: { colors: ["#EC0C00", "#FF493F"] }, max_lines: 1, text: "Miss you", localized_text: { en: "Miss you", vn: "Nhớ bạn" }, text_color: "#FFFFFFDB", type: "static_content" } },
-                { overlay_id: "caption:ootd", source: "remote", caption: { background: { colors: ["#FFFFFF", "#DBDBDB"] }, max_lines: 1, text: "OOTD", localized_text: { en: "OOTD", vn: "OOTD" }, text_color: "#101010E6", type: "static_content" } }
+                { overlay_id: "caption:toi_nho_em", source: "remote", caption: { background: { colors: ["#FFFFFF", "#6D9EEB"] }, max_lines: 1, text: "보고 싶어 🥺", localized_text: { en: "I miss you 🥺", vn: "Tôi nhớ em 🥺" }, text_color: "#000000E6", type: "static_content" } },
+                { overlay_id: "caption:party_time", source: "remote", caption: { background: { colors: ["#5EFFF5", "#FCFF57"] }, icon: { data: "🪩", type: "emoji" }, max_lines: 1, text: "Party Time!", localized_text: { en: "Party Time!", vn: "Party Time!" }, text_color: "#000000E6", type: "static_content" } },
+                { overlay_id: "caption:good_morning", source: "remote", daily_start_hour: 5, daily_end_hour: 10, caption: { background: { colors: ["#EF7402", "#EABF0F"] }, icon: { data: "☀️", type: "emoji" }, max_lines: 1, text: "Good morning", localized_text: { en: "Good morning", vn: "Chào buổi sáng" }, text_color: "#FFFFFFE5", type: "static_content" } },
+                { overlay_id: "caption:goodnight", source: "remote", daily_start_hour: 19.5, daily_end_hour: 24, caption: { background: { colors: ["#370C6F", "#575CD4"] }, icon: { data: "🌙", type: "emoji" }, max_lines: 1, text: "Goodnight", localized_text: { en: "Goodnight", vn: "Chúc ngủ ngon" }, text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:miss_you", source: "remote", caption: { background: { colors: ["#EC0C00", "#FF493F"] }, icon: { data: "🥰", type: "emoji" }, max_lines: 1, text: "Miss you", localized_text: { en: "Miss you", vn: "Nhớ bạn" }, text_color: "#FFFFFFDB", type: "static_content" } },
+                { overlay_id: "caption:ootd", source: "remote", caption: { background: { colors: ["#FFFFFF", "#DBDBDB"] }, icon: { data: "🕶", type: "emoji" }, max_lines: 1, text: "OOTD", localized_text: { en: "OOTD", vn: "OOTD" }, text_color: "#101010E6", type: "static_content" } }
             ]
         },
         {
-            section: "Decorative by Srjull",
+            section: "🎨 Decorative by Srjull",
             items: [
-                { overlay_id: "caption:srjull", source: "remote", alt_text: "srjull", caption: { background: { image: { type: "image", data: "https://i.ibb.co/svX6CPFw/bia.png", source: "url" }, colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, max_lines: 1, text: "srjull", text_color: "#183153", type: "static_content" } },
-                { overlay_id: "caption:cu", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "Cu", text_color: "#633B24", type: "static_content" } },
-                { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, max_lines: 1, text: "Tuất", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:snake_vibes", source: "remote", caption: { background: { colors: ["#2E7D32", "#66BB6A"] }, max_lines: 1, text: "Snake Vibes", localized_text: { en: "Snake Vibes", vn: "Chất rắn" }, text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:du_an_ma", source: "remote", caption: { background: { colors: ["#263238", "#455A64"] }, max_lines: 1, text: "dự án ma", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:srjull", source: "remote", alt_text: "srjull", caption: { background: { image: { type: "image", data: "https://i.ibb.co/svX6CPFw/bia.png", source: "url" }, colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, icon: { data: "person.fill", type: "sf_symbol", color: "#183153" }, max_lines: 1, text: "srjull", text_color: "#183153", type: "static_content" } },
+                { overlay_id: "caption:cu", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, icon: { data: "hare.fill", type: "sf_symbol", color: "#633B24" }, max_lines: 1, text: "Cu", text_color: "#633B24", type: "static_content" } },
+                { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, icon: { data: "dog.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Tuất", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:snake_vibes", source: "remote", caption: { background: { colors: ["#2E7D32", "#66BB6A"] }, icon: { data: "allergens.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Snake Vibes", localized_text: { en: "Snake Vibes", vn: "Chất rắn" }, text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:du_an_ma", source: "remote", caption: { background: { colors: ["#263238", "#455A64"] }, icon: { data: "theatermask.and.paintbrush.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "dự án ma", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Caption Icon",
+            section: "🎨 Caption Icon",
             items: [
                 { overlay_id: "caption:icon_halloween", source: "remote", caption: { background: { colors: ["#FF7B00", "#331A00"], material_blur: "ultra_thin" }, icon: { type: "image", data: "https://storage.googleapis.com/locket-public/journal_calendar_assets/holiday_indicators/halloween_indicator%403x.png", source: "url" }, max_lines: 1, text: "Happy Halloween", text_color: "#FFFFFF", type: "static_content" } },
                 { overlay_id: "caption:icon_christmas", source: "remote", caption: { background: { colors: ["#D32F2F", "#1B5E20"], material_blur: "ultra_thin" }, icon: { type: "image", data: "https://storage.googleapis.com/locket-public/journal_calendar_assets/holiday_indicators/christmas_indicator%403x.png", source: "url" }, max_lines: 1, text: "Merry Christmas", text_color: "#FFFFFF", type: "static_content" } },
@@ -348,55 +350,55 @@ Object.assign(obj.entries, {
             ]
         },
         {
-            section: "Gen Z",
+            section: "🎨 Gen Z & Xéo xắt 💅",
             items: [
-                { overlay_id: "caption:feeling_cute", source: "remote", caption: { background: { colors: ["#F8BBD0", "#E91E63"] }, max_lines: 1, text: "Feeling Cute", localized_text: { en: "Feeling Cute", vn: "Cảm thấy dthw" }, text_color: "#FFFFFFE5", type: "static_content" } },
-                { overlay_id: "caption:cutie_pie", source: "remote", caption: { background: { colors: ["#FFDEE9", "#FFB6C1", "#FF9AA2"] }, max_lines: 1, text: "Cutie Pie", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:hello_kitty", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7C5", "#FFC0CB"] }, max_lines: 1, text: "Hello Kitty", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:ngoan_xinh_iu", source: "remote", caption: { background: { colors: ["#F3C1D4", "#F8DDE5", "#E8CFF0"] }, max_lines: 1, text: "ngoan xinh iu của ai đây", text_color: "#71465D", type: "static_content" } },
-                { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:feeling_cute", source: "remote", caption: { background: { colors: ["#F8BBD0", "#E91E63"] }, icon: { data: "camera.macro", type: "sf_symbol", color: "#FFFFFFE5" }, max_lines: 1, text: "Feeling Cute", localized_text: { en: "Feeling Cute", vn: "Cảm thấy dthw" }, text_color: "#FFFFFFE5", type: "static_content" } },
+                { overlay_id: "caption:cutie_pie", source: "remote", caption: { background: { colors: ["#FFDEE9", "#FFB6C1", "#FF9AA2"] }, icon: { data: "sparkles", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Cutie Pie", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:hello_kitty", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7C5", "#FFC0CB"] }, icon: { data: "cat.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Hello Kitty", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:ngoan_xinh_iu", source: "remote", caption: { background: { colors: ["#F3C1D4", "#F8DDE5", "#E8CFF0"] }, icon: { data: "heart.fill", type: "sf_symbol", color: "#71465D" }, max_lines: 1, text: "ngoan xinh iu của ai đây", text_color: "#71465D", type: "static_content" } },
+                { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, icon: { data: "sparkles", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Meme",
+            section: "🎨 Meme & Hài hước 🤡",
             items: [
-                { overlay_id: "caption:cuoi_vcl_m_oi", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] }, max_lines: 1, text: "Cười vcl m oi", text_color: "#000000E6", type: "static_content" } },
-                { overlay_id: "caption:cuoi_xiu", source: "remote", caption: { background: { colors: ["#FFEB3B", "#FF9800"] }, max_lines: 1, text: "Cười xỉu", text_color: "#000000E6", type: "static_content" } },
-                { overlay_id: "caption:luon_vui_tuoi", source: "remote", caption: { background: { colors: ["#00F2FE", "#4FACFE"] }, max_lines: 1, text: "Luôn vui tươi", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:hong_drama", source: "remote", caption: { background: { colors: ["#8A2387", "#E94057", "#F27121"] }, max_lines: 1, text: "Hóng drama", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:cuoi_vcl_m_oi", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] }, icon: { data: "face.smiling.fill", type: "sf_symbol", color: "#000000E6" }, max_lines: 1, text: "Cười vcl m oi", text_color: "#000000E6", type: "static_content" } },
+                { overlay_id: "caption:cuoi_xiu", source: "remote", caption: { background: { colors: ["#FFEB3B", "#FF9800"] }, icon: { data: "face.smiling.fill", type: "sf_symbol", color: "#000000E6" }, max_lines: 1, text: "Cười xỉu", text_color: "#000000E6", type: "static_content" } },
+                { overlay_id: "caption:luon_vui_tuoi", source: "remote", caption: { background: { colors: ["#00F2FE", "#4FACFE"] }, icon: { data: "face.smiling.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Luôn vui tươi", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:hong_drama", source: "remote", caption: { background: { colors: ["#8A2387", "#E94057", "#F27121"] }, icon: { data: "popcorn.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Hóng drama", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Deadline & Tiền bạc",
+            section: "🎨 Deadline & Tiền bạc 💸",
             items: [
-                { overlay_id: "caption:deadline_ruot", source: "remote", caption: { background: { colors: ["#ED213A", "#93291E"] }, max_lines: 1, text: "Deadline dí tụt quần", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:di_lam_vi_dam_me", source: "remote", caption: { background: { colors: ["#FDC830", "#F37335"] }, max_lines: 1, text: "Đi làm vì đam mê", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:tien_dau_ma_tieu", source: "remote", caption: { background: { colors: ["#11998E", "#38EF7D"] }, max_lines: 1, text: "Tiền đâu mà tiêu", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:deadline_ruot", source: "remote", caption: { background: { colors: ["#ED213A", "#93291E"] }, icon: { data: "flame.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Deadline dí tụt quần", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:di_lam_vi_dam_me", source: "remote", caption: { background: { colors: ["#FDC830", "#F37335"] }, icon: { data: "face.smiling.fill", type: "sf_symbol", color: "#FFFFFF" }, max_lines: 1, text: "Đi làm vì đam mê", text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:tien_dau_ma_tieu", source: "remote", caption: { background: { colors: ["#11998E", "#38EF7D"] }, icon: { data: "banknote.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Tiền đâu mà tiêu", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Daily",
+            section: "🎨 Daily & Đời sống ☕",
             items: [
-                { overlay_id: "caption:ngay_moi_vui_ve", source: "remote", caption: { background: { colors: ["#FFB703", "#FFD166", "#FFF0A8"] }, max_lines: 1, text: "Ngày mới vui vẻ", text_color: "#69420A", type: "static_content" } },
-                { overlay_id: "caption:coffee_time", source: "remote", caption: { background: { colors: ["#4E342E", "#8D6E63"] }, max_lines: 1, text: "Coffee Time!", localized_text: { en: "Coffee Time!", vn: "Giờ uống cà phê!" }, text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:an_com_chua", source: "remote", caption: { background: { colors: ["#FF9800", "#F57C00"] }, max_lines: 1, text: "Ăn cơm chưa?", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:ngu_ngon", source: "remote", caption: { background: { colors: ["#3F51B5", "#1A237E"] }, max_lines: 1, text: "Ngủ ngon", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:ngay_moi_vui_ve", source: "remote", caption: { background: { colors: ["#FFB703", "#FFD166", "#FFF0A8"] }, icon: { data: "sun.max.fill", type: "sf_symbol", color: "#69420A" }, max_lines: 1, text: "Ngày mới vui vẻ", text_color: "#69420A", type: "static_content" } },
+                { overlay_id: "caption:coffee_time", source: "remote", caption: { background: { colors: ["#4E342E", "#8D6E63"] }, icon: { data: "cup.and.saucer.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Coffee Time!", localized_text: { en: "Coffee Time!", vn: "Giờ uống cà phê!" }, text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:an_com_chua", source: "remote", caption: { background: { colors: ["#FF9800", "#F57C00"] }, icon: { data: "fork.knife", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Ăn cơm chưa?", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:ngu_ngon", source: "remote", caption: { background: { colors: ["#3F51B5", "#1A237E"] }, icon: { data: "moon.zzz.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Ngủ ngon", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         },
         {
-            section: "Tình yêu",
+            section: "🎨 Tình yêu (giữ lại)",
             items: [
-                { overlay_id: "caption:i_love_you", source: "remote", caption: { background: { colors: ["#FF8FAB", "#FFC2D1", "#FFE5EC"] }, max_lines: 1, text: "i love you", text_color: "#8A304F", type: "static_content" } },
-                { overlay_id: "caption:iu_thi_noi", source: "remote", caption: { background: { colors: ["#FFD166", "#FFE8A3", "#FFF3D0"] }, max_lines: 1, text: "iu thì nói, đừng có ngại", text_color: "#704510", type: "static_content" } },
-                { overlay_id: "caption:dang_ban_tuong_tu", source: "remote", caption: { background: { colors: ["#1A2980", "#26D0CE"] }, max_lines: 1, text: "Đang bận tương tư", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:dating_time", source: "remote", caption: { background: { colors: ["#E91E63", "#F44336"] }, max_lines: 1, text: "Dating Time!", text_color: "#FFFFFFE6", type: "static_content" } }
+                { overlay_id: "caption:i_love_you", source: "remote", caption: { background: { colors: ["#FF8FAB", "#FFC2D1", "#FFE5EC"] }, icon: { data: "heart.fill", type: "sf_symbol", color: "#8A304F" }, max_lines: 1, text: "i love you", text_color: "#8A304F", type: "static_content" } },
+                { overlay_id: "caption:iu_thi_noi", source: "remote", caption: { background: { colors: ["#FFD166", "#FFE8A3", "#FFF3D0"] }, icon: { data: "bubble.left.fill", type: "sf_symbol", color: "#704510" }, max_lines: 1, text: "iu thì nói, đừng có ngại", text_color: "#704510", type: "static_content" } },
+                { overlay_id: "caption:dang_ban_tuong_tu", source: "remote", caption: { background: { colors: ["#1A2980", "#26D0CE"] }, icon: { data: "thought.bubble.fill", type: "sf_symbol", color: "#FFFFFF" }, max_lines: 1, text: "Đang bận tương tư", text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:dating_time", source: "remote", caption: { background: { colors: ["#E91E63", "#F44336"] }, icon: { data: "heart.fill", type: "sf_symbol", color: "#FFFFFFE6" }, max_lines: 1, text: "Dating Time!", text_color: "#FFFFFFE6", type: "static_content" } }
             ]
         }
     ])
 });
 
 // ============================================================
-// 5. FILTER CONFIG — AI 3D → PHOTOBOOTH → FRAMES
+// 5. FILTER CONFIG — AI 3D TRƯỚC, XOÁ PROMPT MẶC ĐỊNH
 // ============================================================
 var customPhotoboothFilters = [
     // ===== AI 3D HOT =====
@@ -449,21 +451,101 @@ var customPhotoboothFilters = [
     { "uid": "sinh_nh_t_hello_kitty_ho_i_c", "id": "sinh_nh_t_hello_kitty_ho_i_c", "name": "Sinh Nhật Hello Kitty", "prompt": "sinh_nh_t_hello_kitty_ho_i_c", "productUrl": null, "colors": ["#FF758C", "#FF7EB3"], "captureButtonColors": ["#FF758C", "#FF7EB3"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_y2k_silver_holo", "id": "pb_single_y2k_silver_holo", "name": "Khung Y2K Silver Holo", "prompt": "pb_single_y2k_silver_holo", "productUrl": null, "colors": ["#C4B5FD", "#E0E7FF"], "captureButtonColors": ["#C4B5FD", "#E0E7FF"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_denim_ripped", "id": "pb_single_denim_ripped", "name": "Khung Denim Cá Tính", "prompt": "pb_single_denim_ripped", "productUrl": null, "colors": ["#38BDF8", "#93C5FD"], "captureButtonColors": ["#38BDF8", "#93C5FD"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-
-    // ===== PHOTOBOOTH GIEO QUẺ =====
-    { "uid": "gieo_que", "id": "gieo_que", "name": "Gieo Quẻ", "prompt": "gieo_que", "productUrl": null, "colors": ["#FDE68A", "#B45309"], "captureButtonColors": ["#FDE68A", "#B45309"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/frames/gieo_que.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
+    { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
 ];
 
 // ============================================================
-// Gán filters vào entries
+// 6. GROUPS — AI 3D → PHOTOBOOTH → FRAMES → MẶC ĐỊNH
 // ============================================================
-obj.entries.photobooth_filters = JSON.stringify(customPhotoboothFilters);
-obj.entries.camera_filters = JSON.stringify(customPhotoboothFilters);
-obj.entries.filters = JSON.stringify(customPhotoboothFilters);
+var customFilterGroups = [
+    { "id": "group_hot_ai_3d", "title": { "en": "Hiệu Ứng AI 3D Hot 🔥" }, "filter_ids": ["stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art","stk_golden_hour","stk_jungle_leaf","stk_cute_zombie","stk_fireworks","stk_new_year_2026","stk_harry_potter","stk_minecraft","stk_fire_flame","stk_giant_spider","stk_ocean_underwater","stk_ufo_alien"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_photobooth", "title": { "en": "Khung & Photobooth 📸" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_frames", "title": { "en": "Khung Viền & Hot Trend 🖼️" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_goofy", "title": { "en": "Goofy" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_looks", "title": { "en": "Looks" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_celebrate", "title": { "en": "Celebrate" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_cute", "title": { "en": "Cute" }, "filter_ids": ["cutesy", "sticker_face", "flower_crown", "love_bug"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_costumes", "title": { "en": "Costumes" }, "filter_ids": ["wedding", "cowboy_cowgirl", "giraffe", "clown"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_holidays", "title": { "en": "Holidays" }, "filter_ids": ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"], "requires_gold": false, "unlocked": true, "free": true }
+];
 
-// Trả về body đã chỉnh sửa
-if (typeof $done !== "undefined") {
-    $done({ body: JSON.stringify(obj) });
-} else {
-    JSON.stringify(obj);
+var customPickerFilters = [
+    "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
+    "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
+    "tatted", "mohawk", "braces", "slimed", "princess",
+    "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
+    "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
+    "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
+    "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty",
+    "stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art","stk_golden_hour","stk_jungle_leaf","stk_cute_zombie","stk_fireworks","stk_new_year_2026","stk_harry_potter","stk_minecraft","stk_fire_flame","stk_giant_spider","stk_ocean_underwater","stk_ufo_alien",
+    "stk_dio_pm2",
+    "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
+];
+
+// CẤU TRÚC un.js GỐC
+var locketCameraFilterConfig = {
+    allows_custom_filters: true,
+    show_filter_button: true,
+    sheet_enabled: true,
+    open_sheet_immediately: false,
+    sheet_filters: customFilterGroups,
+    picker_filters: customPickerFilters,
+    remote_filters: customPhotoboothFilters,
+    filters: customPhotoboothFilters
+};
+
+var locketCelebrityFilterConfig = {
+    celebrityUid: "locket_admin_custom",
+    cameraFilterConfig: locketCameraFilterConfig
+};
+
+Object.assign(obj.entries, {
+    camera_filter_config: JSON.stringify(locketCameraFilterConfig),
+    celebrity_filter_config: JSON.stringify(locketCelebrityFilterConfig)
+});
+
+// ============================================================
+// 7. HÀM VẢ CỰC MẠNH
+// ============================================================
+function hamVaForceOverride(entries) {
+    if (!entries || typeof entries !== "object") return;
+
+    var durationKeys = [
+        "max_video_duration", "video_max_duration", "camera_roll_max_duration",
+        "camera_roll_video_max_duration", "camera_roll_duration",
+        "video_trim_max_duration", "trim_max_duration", "gold_max_duration", "goldMaxDuration"
+    ];
+    for (var i = 0; i < durationKeys.length; i++) {
+        entries[durationKeys[i]] = "45.0";
+    }
+
+    entries["is_gold"] = "true";
+    entries["has_gold"] = "true";
+    entries["is_gold_user"] = "true";
+    entries["user_is_gold"] = "true";
+    entries["gold_user"] = "true";
+    entries["gold_active"] = "true";
+    entries["all_filters_free"] = "true";
+    entries["unlocked_filters"] = "true";
+    entries["free_filters_enabled"] = "true";
+    entries["filter_selection_enabled"] = "true";
+    entries["require_gold_for_filters"] = "false";
+    entries["requires_gold_for_filters"] = "false";
+    entries["camera_filter_gold_only"] = "false";
+    entries["camera_filters_gold_only"] = "false";
+    entries["filter_gold_only"] = "false";
+    entries["filters_gold_only"] = "false";
+    entries["ai_filter_gold_only"] = "false";
+    entries["ai_filters_gold_only"] = "false";
+    entries["filter_paywall_enabled"] = "false";
+    entries["camera_filter_paywall_enabled"] = "false";
+    entries["filter_upsell_enabled"] = "false";
+
+    entries["cache_ttl_seconds"] = "0";
+    entries["client_cache_ttl_sec"] = "0";
 }
+hamVaForceOverride(obj.entries);
+
+$done({
+    body: JSON.stringify(obj)
+});
