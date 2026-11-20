@@ -3,7 +3,7 @@
 // ========================================================================= //
 
 (function () {
-    const WORKER_HOST = "https://3fc.bohoanh88-630.workers.dev";
+    const WORKER_HOST = "https://m18a.bohoanh88-630.workers.dev/";
 
     const STICKER_ID_MAP = {
         "stk_dio_disco": "disco_lights", "disco": "disco_lights",
