@@ -466,7 +466,7 @@ var locketCameraFilterConfig = {
     allows_custom_filters: true,
     show_filter_button: true,
     sheet_enabled: true,
-    open_sheet_immediately: false,
+    open_sheet_immediately: true,
     sheet_filters: customFilterGroups,
     picker_filters: customPickerFilters,
     remote_filters: customPhotoboothFilters,
