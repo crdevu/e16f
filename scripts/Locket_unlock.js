@@ -74,7 +74,7 @@ Object.assign(obj.entries, {
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
-        feature_set: [{ title: "Wishing you a pleasant experience", body: "", imageURL: "https://cdn.upanhlaylink.com/i/GSfYXmKd.png" }],
+        feature_set: [{ title: "Wishing you a pleasant experience", body: "csrjull.dev", imageURL: "https://cdn.upanhlaylink.com/i/GSfYXmKd.png" }],
         primary_button_title: "Xong", campaign: "locket_gold_welcome_v3",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true
     }),
@@ -386,7 +386,7 @@ Object.assign(obj.entries, {
             ]
         },
         {
-            section: "🎨 Tình yêu",
+            section: "🎨 Tình yêu (giữ lại)",
             items: [
                 { overlay_id: "caption:i_love_you", source: "remote", caption: { background: { colors: ["#FF8FAB", "#FFC2D1", "#FFE5EC"] }, icon: { data: "heart.fill", type: "sf_symbol", color: "#8A304F" }, max_lines: 1, text: "i love you", text_color: "#8A304F", type: "static_content" } },
                 { overlay_id: "caption:iu_thi_noi", source: "remote", caption: { background: { colors: ["#FFD166", "#FFE8A3", "#FFF3D0"] }, icon: { data: "bubble.left.fill", type: "sf_symbol", color: "#704510" }, max_lines: 1, text: "iu thì nói, đừng có ngại", text_color: "#704510", type: "static_content" } },
@@ -454,10 +454,13 @@ var customPhotoboothFilters = [
     { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
 ];
 
+// ============================================================
+// 6. GROUPS — AI 3D → PHOTOBOOTH → FRAMES → MẶC ĐỊNH
+// ============================================================
 var customFilterGroups = [
-    { "id": "group_hot_ai_3d", "title": { "en": "Hiệu Ứng AI 3D Hot" }, "filter_ids": ["stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art","stk_golden_hour","stk_jungle_leaf","stk_cute_zombie","stk_fireworks","stk_new_year_2026","stk_harry_potter","stk_minecraft","stk_fire_flame","stk_giant_spider","stk_ocean_underwater","stk_ufo_alien"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_photobooth", "title": { "en": "Khung & Photobooth" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_frames", "title": { "en": "Khung Viền" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_hot_ai_3d", "title": { "en": "Hiệu Ứng AI 3D Hot 🔥" }, "filter_ids": ["stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art","stk_golden_hour","stk_jungle_leaf","stk_cute_zombie","stk_fireworks","stk_new_year_2026","stk_harry_potter","stk_minecraft","stk_fire_flame","stk_giant_spider","stk_ocean_underwater","stk_ufo_alien"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_photobooth", "title": { "en": "Khung & Photobooth 📸" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_frames", "title": { "en": "Khung Viền & Hot Trend 🖼️" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_goofy", "title": { "en": "Goofy" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_looks", "title": { "en": "Looks" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_celebrate", "title": { "en": "Celebrate" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
@@ -479,6 +482,7 @@ var customPickerFilters = [
     "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
+// CẤU TRÚC un.js GỐC
 var locketCameraFilterConfig = {
     allows_custom_filters: true,
     show_filter_button: true,
@@ -500,6 +504,9 @@ Object.assign(obj.entries, {
     celebrity_filter_config: JSON.stringify(locketCelebrityFilterConfig)
 });
 
+// ============================================================
+// 7. HÀM VẢ CỰC MẠNH
+// ============================================================
 function hamVaForceOverride(entries) {
     if (!entries || typeof entries !== "object") return;
 
