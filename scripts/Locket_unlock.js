@@ -457,7 +457,7 @@ var customPickerFilters = [
     "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
     "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
     "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty",
-    "stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art",
+    "tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","stk_temperance",
     "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
