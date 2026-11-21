@@ -446,15 +446,15 @@ var customPhotoboothFilters = [
 // 6. GROUPS — AI 3D → PHOTOBOOTH → FRAMES → MẶC ĐỊNH
 // ============================================================
 var customFilterGroups = [
-    { "id": "group_tarots", "title": { "en": "Tarot" }, "filter_ids": ["stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_photobooth", "title": { "en": "Khung & Photobooth" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_frames", "title": { "en": "Khung Viền" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_goofy", "title": { "en": "Goofy" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_looks", "title": { "en": "Looks" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_celebrate", "title": { "en": "Celebrate" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_cute", "title": { "en": "Cute" }, "filter_ids": ["cutesy", "sticker_face", "flower_crown", "love_bug"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_costumes", "title": { "en": "Costumes" }, "filter_ids": ["wedding", "cowboy_cowgirl", "giraffe", "clown"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_holidays", "title": { "en": "Holidays" }, "filter_ids": ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"], "requires_gold": false, "unlocked": true, "free": true }
+    { "id": "group_tarots", "title": { "en": "TAROT" }, "filter_ids": ["stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_photobooth", "title": { "en": "KHUNG & PHOTOBOOTH" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_frames", "title": { "en": "KHUNG VIỀN" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_goofy", "title": { "en": "GOOFY" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_looks", "title": { "en": "LOOKS" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_celebrate", "title": { "en": "CELEBRATE" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_cute", "title": { "en": "CUTE" }, "filter_ids": ["cutesy", "sticker_face", "flower_crown", "love_bug"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_costumes", "title": { "en": "COSTUMES" }, "filter_ids": ["wedding", "cowboy_cowgirl", "giraffe", "clown"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_holidays", "title": { "en": "HOLIDAYS" }, "filter_ids": ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"], "requires_gold": false, "unlocked": true, "free": true }
 ];
 
 var customPickerFilters = [
@@ -465,8 +465,7 @@ var customPickerFilters = [
     "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
     "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
     "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty",
-    "stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art","stk_golden_hour","stk_jungle_leaf","stk_cute_zombie","stk_fireworks","stk_new_year_2026","stk_harry_potter","stk_minecraft","stk_fire_flame","stk_giant_spider","stk_ocean_underwater","stk_ufo_alien",
-    "stk_dio_pm2",
+    "stk_rose_flower","stk_shrek_ogre","stk_superhero_cape","stk_spooky_ghost","stk_pirate_hat","stk_volcano_lava","stk_rain_storm","stk_fortnite_llama","stk_watercolor_art",
     "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
