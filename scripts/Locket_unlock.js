@@ -293,8 +293,38 @@ Object.assign(obj.entries, {
                 { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
                 { overlay_id: "caption:live", source: "local", caption: { type: "live" } },
                 { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } },
-                { overlay_id: "caption:quote", source: "local", caption: { type: "quote" } },
-                { overlay_id: "caption:breaking_news", source: "local", caption: { type: "breaking_news" } }
+                {
+                    overlay_id: "caption:quote",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#1F2937", "#4B5563"] },
+                        icon: { data: "text.quote", type: "sf_symbol", color: "#FFFFFFE6" },
+                        max_lines: 3,
+                        text: "Mỗi ngày là một cơ hội mới",
+                        localized_text: {
+                            en: "Every day is a new chance",
+                            vn: "Mỗi ngày là một cơ hội mới"
+                        },
+                        text_color: "#FFFFFFE6",
+                        type: "static_content"
+                    }
+                },
+                {
+                    overlay_id: "caption:breaking_news",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#B91C1C", "#7F1D1D"] },
+                        icon: { data: "newspaper.fill", type: "sf_symbol", color: "#FFFFFFE6" },
+                        max_lines: 2,
+                        text: "BREAKING NEWS",
+                        localized_text: {
+                            en: "BREAKING NEWS",
+                            vn: "TIN NÓNG HỔI"
+                        },
+                        text_color: "#FFFFFFE6",
+                        type: "static_content"
+                    }
+                }
             ]
         },
         {
