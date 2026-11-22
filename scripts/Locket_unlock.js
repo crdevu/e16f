@@ -74,7 +74,10 @@ Object.assign(obj.entries, {
         title: "Welcome To Locket Gold",
         feature_set: [{ title: "", body: "Wishing you a pleasant experience", imageURL: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/zzonnya.png" }],
         primary_button_title: "Xong", campaign: "locket_gold_welcome_v3",
-        start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true
+        start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true,
+        size: "small", compact: true, half_screen: true,
+        modal_style: "half_sheet", presentation_style: "bottom_sheet",
+        max_height_percentage: 0.5, corner_radius: 20
     }),
     android_subscribe_gold_button_enabled: "false",
     profile_badge_visible: "true",
