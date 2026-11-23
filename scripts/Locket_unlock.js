@@ -72,7 +72,7 @@ Object.assign(obj.entries, {
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
-        feature_set: [{ title: "", body: "Wishing you a pleasant experience", imageURL: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/zzonnya.png" }],
+        feature_set: [{ title: "", body: "Wishing you a pleasant experience", imageURL: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/widget/zzonnya.png" }],
         primary_button_title: "Xong", campaign: "locket_gold_welcome_v3",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true
     }),
@@ -218,7 +218,7 @@ Object.assign(obj.entries, {
     widget_stale_state_enabled: "false", widget_last_sent_indicator: "false",
     widget_sync_token_reload_mode: "clearTokenNever",
     widget_frame_event: JSON.stringify({
-        uid: "midautumn_2026", url: "https://i.ibb.co/MDPp7jFr/6ad5ff164b93.png⁠",
+        uid: "midautumn_2026", url: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/widget/wg_ig.png⁠",
         use_local_time_zone: true, placement: "below",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59"
     }),
