@@ -1,8 +1,4 @@
-# Workspace
-
-Bộ mã nguồn cấu hình và các tài nguyên liên quan đến Locket, YouTube, Spotify, SoundCloud và dịch vụ Worker xử lý ảnh/photobooth.
-
-> **Lưu ý:** README này mô tả cấu trúc và cách triển khai ở mức vận hành. Hãy chỉ sử dụng với tài khoản, dịch vụ và nội dung mà bạn có quyền kiểm soát. Một số script có thể thay đổi hành vi phản hồi API của dịch vụ bên thứ ba; hãy kiểm tra điều khoản dịch vụ và quyền sử dụng trước khi triển khai.
+# e16f
 
 ## Cấu trúc thư mục
 
