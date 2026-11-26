@@ -1,5 +1,5 @@
 // ============================================================
-// Locket Remote Config Rewrite — FULL UNLOCK (FIXED)
+// Locket Remote Config Rewrite — FULL UNLOCK
 // Đảo thứ tự: AI 3D → Photobooth → Frames → mặc định
 // Xoá prompt filter mặc định, giữ prompt ID cho AI
 // ============================================================
@@ -72,7 +72,7 @@ Object.assign(obj.entries, {
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
-        feature_set: [{ title: "", body: "Wishing you a pleasant experience", imageURL: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/widget/zzonnya.png" }],
+        feature_set: [{ title: "", body: "Wishing you a pleasant experience", imageURL: "https://cdn.upanhlaylink.com/i/GSfYXmKd.png" }],
         primary_button_title: "Xong", campaign: "locket_gold_welcome_v3",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59", use_local_time_zone: true
     }),
@@ -129,7 +129,27 @@ obj.entries.camera = JSON.stringify({
     max_duration: MY_VIDEO_DURATION, maxDuration: MY_VIDEO_DURATION,
     ultra_wide: true, ultraWide: true, volume_button: true, volumeButton: true,
     flash_button: true, telephoto: true, srgb: true, lanczos: true,
-    quality_mbps: 0.6, qualityMbps: 0.6
+    quality_mbps: 0.6, qualityMbps: 0.6,
+    // v2.74 NEW CAMERA UI — countdown timer 3s/5s/10s + zoom .5x/1x/2x
+    timer_enabled: true, timerEnabled: true,
+    timer_options: [3, 5, 10], timerOptions: [3, 5, 10],
+    timer_3s_enabled: true, timer_5s_enabled: true, timer_10s_enabled: true,
+    timer_default: 3, timerDefault: 3,
+    countdown_visual: true, countdownVisual: true,
+    countdown_audio: true, countdownAudio: true,
+    zoom_enabled: true, zoomEnabled: true,
+    zoom_presets: [0.5, 1.0, 2.0], zoomPresets: [0.5, 1.0, 2.0],
+    zoom_05x_enabled: true, ultraWide05x: true,
+    zoom_1x_enabled: true,
+    zoom_2x_enabled: true, telephoto2x: true,
+    pinch_zoom: true, pinchZoom: true,
+    pinch_zoom_smooth: true,
+    mic_button: true, micButton: true,
+    mic_mute_enabled: true, micMuteEnabled: true,
+    camera_roll_button: true, cameraRollButton: true,
+    switch_camera_button: true, switchCameraButton: true,
+    dark_viewfinder: true, darkViewfinder: true,
+    viewfinder_rounded: true
 });
 
 obj.entries.camera_roll = JSON.stringify({
@@ -218,7 +238,7 @@ Object.assign(obj.entries, {
     widget_stale_state_enabled: "false", widget_last_sent_indicator: "false",
     widget_sync_token_reload_mode: "clearTokenNever",
     widget_frame_event: JSON.stringify({
-        uid: "midautumn_2026", url: "https://cdn.jsdelivr.net/gh/crdevu/e16f/assets/widget/wg_ig.png",
+        uid: "midautumn_2026", url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
         use_local_time_zone: true, placement: "below",
         start_at: "2020-01-01T00:00:00", end_at: "2099-12-31T23:59:59"
     }),
@@ -394,15 +414,15 @@ Object.assign(obj.entries, {
 // ============================================================
 var customPhotoboothFilters = [
     // Tarot
-    { "uid": "tr_the_magician", "id": "tr_the_magician", "name": "Tarot Hành Động", "prompt": "tr_the_magician", "productUrl": null, "colors": ["#E11D48", "#FB7185"], "captureButtonColors": ["#E11D48", "#FB7185"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_all_seing_eye", "id": "tr_all_seing_eye", "name": "Tarot Sự Thật", "prompt": "tr_all_seing_eye", "productUrl": null, "colors": ["#84CC16", "#65A30D"], "captureButtonColors": ["#84CC16", "#65A30D"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_the_hermit", "id": "tr_the_hermit", "name": "Tarot Định Hướng", "prompt": "tr_the_hermit", "productUrl": null, "colors": ["#DC2626", "#FBBF24"], "captureButtonColors": ["#DC2626", "#FBBF24"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_the_moon", "id": "tr_the_moon", "name": "Tarot Cảm Xúc", "prompt": "tr_the_moon", "productUrl": null, "colors": ["#38BDF8", "#818CF8"], "captureButtonColors": ["#38BDF8", "#818CF8"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_the_sun", "id": "tr_the_sun", "name": "Tarot Thành Công", "prompt": "tr_the_sun", "productUrl": null, "colors": ["#0F172A", "#E2E8F0"], "captureButtonColors": ["#0F172A", "#E2E8F0"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_wheel_of_forutne", "id": "tr_wheel_of_forutne", "name": "Tarot Vận May", "prompt": "tr_wheel_of_forutne", "productUrl": null, "colors": ["#EA580C", "#EF4444"], "captureButtonColors": ["#EA580C", "#EF4444"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_the_high_hierophant", "id": "tr_the_high_hierophant", "name": "Tarot Tri Thức", "prompt": "tr_the_high_hierophant", "productUrl": null, "colors": ["#3B82F6", "#6366F1"], "captureButtonColors": ["#3B82F6", "#6366F1"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_the_high_priestess", "id": "tr_the_high_priestess", "name": "Tarot Dự Báo", "prompt": "tr_the_high_priestess", "productUrl": null, "colors": ["#A855F7", "#EC4899"], "captureButtonColors": ["#A855F7", "#EC4899"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
-    { "uid": "tr_temperance", "id": "tr_temperance", "name": "Tarot Công Việc", "prompt": "tr_temperance", "productUrl": null, "colors": ["#06B6D4", "#F43F5E"], "captureButtonColors": ["#06B6D4", "#F43F5E"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_magician", "id": "tr_the_magician", "name": "Hành Động", "prompt": "tr_the_magician", "productUrl": null, "colors": ["#E11D48", "#FB7185"], "captureButtonColors": ["#E11D48", "#FB7185"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_magician.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_all_seing_eye", "id": "tr_all_seing_eye", "name": "Sự Thật", "prompt": "tr_all_seing_eye", "productUrl": null, "colors": ["#84CC16", "#65A30D"], "captureButtonColors": ["#84CC16", "#65A30D"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/all_seeing_eye.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_hermit", "id": "tr_the_hermit", "name": "Định Hướng", "prompt": "tr_the_hermit", "productUrl": null, "colors": ["#DC2626", "#FBBF24"], "captureButtonColors": ["#DC2626", "#FBBF24"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_hermit.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_moon", "id": "tr_the_moon", "name": "Cảm Xúc", "prompt": "tr_the_moon", "productUrl": null, "colors": ["#38BDF8", "#818CF8"], "captureButtonColors": ["#38BDF8", "#818CF8"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_moon.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_sun", "id": "tr_the_sun", "name": "Thành Công", "prompt": "tr_the_sun", "productUrl": null, "colors": ["#0F172A", "#E2E8F0"], "captureButtonColors": ["#0F172A", "#E2E8F0"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_sun.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_wheel_of_forutne", "id": "tr_wheel_of_forutne", "name": "Vận May", "prompt": "tr_wheel_of_forutne", "productUrl": null, "colors": ["#EA580C", "#EF4444"], "captureButtonColors": ["#EA580C", "#EF4444"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/wheel_of_fortune.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_high_hierophant", "id": "tr_the_high_hierophant", "name": "Tri Thức", "prompt": "tr_the_high_hierophant", "productUrl": null, "colors": ["#3B82F6", "#6366F1"], "captureButtonColors": ["#3B82F6", "#6366F1"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_hierophant.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_the_high_priestess", "id": "tr_the_high_priestess", "name": "Dự Báo", "prompt": "tr_the_high_priestess", "productUrl": null, "colors": ["#A855F7", "#EC4899"], "captureButtonColors": ["#A855F7", "#EC4899"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/the_high_priestess.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
+    { "uid": "tr_temperance", "id": "tr_temperance", "name": "Công Việc", "prompt": "tr_temperance", "productUrl": null, "colors": ["#06B6D4", "#F43F5E"], "captureButtonColors": ["#06B6D4", "#F43F5E"], "icon": { "url": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "remoteImage": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "sfSymbol": "sparkles", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "overlayImageURL": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "imageUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "iconUrl": "https://raw.githubusercontent.com/crdevu/e16f/refs/heads/main/assets/tarots/temperance.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "normal" },
 
     // Photobooth
     { "uid": "photobooth_4cut", "id": "photobooth_4cut", "name": "Photobooth 4 ô", "prompt": "photobooth_4cut", "productUrl": null, "colors": ["#FFD6E0", "#FFE4EC"], "captureButtonColors": ["#FFD6E0", "#FFE4EC"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "sfSymbol": "square.grid.2x2", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/photobooth_4cut.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
@@ -431,30 +451,16 @@ var customPhotoboothFilters = [
     { "uid": "sinh_nh_t_hello_kitty_ho_i_c", "id": "sinh_nh_t_hello_kitty_ho_i_c", "name": "Sinh Nhật Hello Kitty", "prompt": "sinh_nh_t_hello_kitty_ho_i_c", "productUrl": null, "colors": ["#FF758C", "#FF7EB3"], "captureButtonColors": ["#FF758C", "#FF7EB3"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_y2k_silver_holo", "id": "pb_single_y2k_silver_holo", "name": "Khung Y2K Silver Holo", "prompt": "pb_single_y2k_silver_holo", "productUrl": null, "colors": ["#C4B5FD", "#E0E7FF"], "captureButtonColors": ["#C4B5FD", "#E0E7FF"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_denim_ripped", "id": "pb_single_denim_ripped", "name": "Khung Denim Cá Tính", "prompt": "pb_single_denim_ripped", "productUrl": null, "colors": ["#38BDF8", "#93C5FD"], "captureButtonColors": ["#38BDF8", "#93C5FD"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-
-    // Camera (bổ sung — group_camera / group_camera_two trước đây trỏ tới filter không tồn tại)
-    { "uid": "c_back_dslr", "id": "c_back_dslr", "name": "DSLR Vintage", "prompt": "c_back_dslr", "productUrl": null, "colors": ["#222222", "#555555"], "captureButtonColors": ["#222222", "#555555"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_red_vintage", "id": "c_red_vintage", "name": "Máy Ảnh Đỏ", "prompt": "c_red_vintage", "productUrl": null, "colors": ["#B71C1C", "#E53935"], "captureButtonColors": ["#B71C1C", "#E53935"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_olive_vintage", "id": "c_olive_vintage", "name": "Máy Ảnh Olive", "prompt": "c_olive_vintage", "productUrl": null, "colors": ["#556B2F", "#8A9A5B"], "captureButtonColors": ["#556B2F", "#8A9A5B"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_orange_retro", "id": "c_orange_retro", "name": "Máy Ảnh Cam", "prompt": "c_orange_retro", "productUrl": null, "colors": ["#E65100", "#FF9800"], "captureButtonColors": ["#E65100", "#FF9800"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_classic_silver", "id": "c_classic_silver", "name": "Máy Ảnh Bạc", "prompt": "c_classic_silver", "productUrl": null, "colors": ["#9E9E9E", "#E0E0E0"], "captureButtonColors": ["#9E9E9E", "#E0E0E0"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_white", "id": "c_white", "name": "Máy Ảnh Trắng", "prompt": "c_white", "productUrl": null, "colors": ["#FAFAFA", "#EEEEEE"], "captureButtonColors": ["#FAFAFA", "#EEEEEE"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_1", "id": "c_1", "name": "Cute Camera 1", "prompt": "c_1", "productUrl": null, "colors": ["#F8BBD0", "#F48FB1"], "captureButtonColors": ["#F8BBD0", "#F48FB1"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_2", "id": "c_2", "name": "Cute Camera 2", "prompt": "c_2", "productUrl": null, "colors": ["#B2EBF2", "#80DEEA"], "captureButtonColors": ["#B2EBF2", "#80DEEA"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_3", "id": "c_3", "name": "Cute Camera 3", "prompt": "c_3", "productUrl": null, "colors": ["#FFF59D", "#FFEE58"], "captureButtonColors": ["#FFF59D", "#FFEE58"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_4", "id": "c_4", "name": "Cute Camera 4", "prompt": "c_4", "productUrl": null, "colors": ["#D1C4E9", "#B39DDB"], "captureButtonColors": ["#D1C4E9", "#B39DDB"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
+    { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
 ];
 
 // ============================================================
 // 6. GROUPS — AI 3D → PHOTOBOOTH → FRAMES → MẶC ĐỊNH
 // ============================================================
 var customFilterGroups = [
-    { "id": "group_tarots", "title": { "en": "TAROT" }, "filter_ids": ["tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","tr_temperance"], "requires_gold": false, "unlocked": true, "free": true },
+    { "id": "group_tarots", "title": { "en": "TAROT" }, "filter_ids": ["tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","stk_temperance"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_photobooth", "title": { "en": "KHUNG & PHOTOBOOTH" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_frames", "title": { "en": "KHUNG VIỀN" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_camera", "title": { "en": "RETRO CAMERA" }, "filter_ids": ["c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_camera_two", "title": { "en": "CUTE CAMERA" }, "filter_ids": ["c_white","c_1","c_2","c_3","c_4"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_goofy", "title": { "en": "GOOFY" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_looks", "title": { "en": "LOOKS" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_celebrate", "title": { "en": "CELEBRATE" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
@@ -472,9 +478,7 @@ var customPickerFilters = [
     "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
     "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty",
     "tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","tr_temperance",
-    "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia",
-    "c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver",
-    "c_white","c_1","c_2","c_3","c_4"
+    "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
 // CẤU TRÚC un.js GỐC
@@ -539,11 +543,249 @@ function hamVaForceOverride(entries) {
     entries["cache_ttl_seconds"] = "0";
     entries["client_cache_ttl_sec"] = "0";
 
-    // Đảm bảo config filter không bị ghi đè
-    entries["camera_filter_config"] = JSON.stringify(locketCameraFilterConfig);
-    entries["celebrity_filter_config"] = JSON.stringify(locketCelebrityFilterConfig);
+    // Force v2.74 features
+    entries["rollcall_enabled"] = "true";
+    entries["rollcall_live_activity_enabled"] = "true";
+    entries["celebrity_inbox_enabled"] = "true";
+    entries["celebrity_locket_enabled"] = "true";
+    entries["artist_locket_enabled"] = "true";
+    entries["moment_views_enabled"] = "true";
+    entries["record_moment_views"] = "true";
+    entries["chat_reactions_enabled"] = "true";
+    entries["conversation_drafts_enabled"] = "true";
+    entries["private_mode_enabled"] = "true";
+    entries["viewer_mode_enabled"] = "true";
+    entries["close_friends_enabled"] = "true";
+    entries["groups_enabled"] = "true";
+    entries["live_activity_onboarding"] = "true";
+    entries["live_activity_dynamic_island_enabled"] = "true";
+    entries["profile_badge_visible"] = "true";
+    entries["streak_recovery"] = "true";
+    entries["time_travel_rewind_v2_enabled"] = "true";
 }
 hamVaForceOverride(obj.entries);
+
+
+// ============================================================
+// 8. TÍNH NĂNG MỚI v2.74.0 — Rollcall, Celebrity, Chat, Live
+// ============================================================
+
+// 8a. ROLLCALL — Weekly photo dump (Gen Alpha hit feature)
+Object.assign(obj.entries, {
+    rollcall_enabled: "true",
+    rollcall_comment_actions: "true",
+    rollcall_profile_button: "true",
+    rollcall_prompt_export_after_share: "true",
+    rollcall_confirm_skip_tagging: "false",
+    rollcall_tap_to_tag_enabled: "true",
+    rollcall_max_photos: "10",
+    rollcall_min_photos: "1",
+    rollcall_day_of_week: "0",
+    rollcall_prompt_hour: "9",
+    rollcall_reaction_enabled: "true",
+    rollcall_view_count_enabled: "true",
+    rollcall_sharing_enabled: "true",
+    rollcall_archive_enabled: "true",
+    rollcall_live_activity_enabled: "true",
+    rollcall_live_activity_lock_screen: "true",
+    rollcall_live_activity_dynamic_island: "true",
+    rollcall_badge_enabled: "true",
+    rollcall_notification_enabled: "true",
+    rollcall_remind_friends: "true",
+    rollcall_max_participants: "20",
+    rollcall_caption_enabled: "true",
+    rollcall_music_caption_enabled: "true"
+});
+
+// 8b. CELEBRITY / ARTISTS LOCKETS (v2.74 — public launch)
+Object.assign(obj.entries, {
+    celebrity_inbox_enabled: "true",
+    celebrity_inbox_limit: "999999999",
+    celebrity_vip_qr_redemption_enabled: "true",
+    celebrity_locket_enabled: "true",
+    celebrity_discover_enabled: "true",
+    celebrity_notification_enabled: "true",
+    celebrity_max_fans: "15000",
+    celebrity_onboarding_enabled: "true",
+    celebrity_verified_badge: "true",
+    celebrity_post_to_fans: "true",
+    celebrity_fan_reactions: "true",
+    celebrity_fan_view_count: "true",
+    celebrity_fan_share: "true",
+    celebrity_widget_frame: "true",
+    celebrity_live_activity_enabled: "true",
+    artist_locket_enabled: "true",
+    artist_locket_discover: "true",
+    artist_post_enabled: "true",
+    artist_fan_slot_min: "1000",
+    artist_fan_slot_max: "15000"
+});
+
+// 8c. CHAT & REACTIONS v2.74
+Object.assign(obj.entries, {
+    chat_reactions_enabled: "true",
+    conversation_reactions: "true",
+    chat_reaction_palette: JSON.stringify(["💛","💖","🥰","😂","🔥","💋","🫶","❤️","😍","💕"]),
+    typing_indicators_enabled: "true",
+    unsend_message_enabled: "true",
+    reply_prototype_enabled: "true",
+    messages_integration: "true",
+    conversations_enabled: "true",
+    fetch_moments_in_conversation: "true",
+    hide_chat_button: "false",
+    chat_hyperlink_enabled_mode: "always_enabled",
+    send_to_self_only_mode: "always_enabled",
+    conversation_drafts_enabled: "true",
+    chat_read_receipts_enabled: "true",
+    chat_ghost_mode_enabled: "true",
+    chat_message_search_enabled: "true",
+    chat_link_preview_enabled: "true",
+    chat_media_send_enabled: "true",
+    chat_realtime_websocket: "true",
+    chat_ws_url: "wss://api.locketcamera.com/wss_v2/chat",
+    chat_reaction_remove_enabled: "true",
+    chat_reaction_multi_emoji: "true"
+});
+
+// 8d. LIVE ACTIVITIES (iOS Lock Screen + Dynamic Island)
+Object.assign(obj.entries, {
+    live_activity_onboarding: "true",
+    live_activity_onboarding_variant: "friending",
+    register_live_activity_push_to_start_token: "true",
+    live_activity_remove_stale_start_token: "true",
+    notification_preferences_live_activities: "true",
+    live_activity_rollcall: "true",
+    live_activity_celebrity: "true",
+    live_activity_moments: "true",
+    live_activity_chat: "true",
+    live_activity_streaks: "true",
+    live_activity_dynamic_island_enabled: "true",
+    live_activity_lock_screen_enabled: "true",
+    live_activity_banner_enabled: "true"
+});
+
+// 8e. GROUPS, PRIVATE MODE, CLOSE FRIENDS
+Object.assign(obj.entries, {
+    groups_enabled: "true",
+    group_contact_invites_enabled: "true",
+    groups_onboarding_accept_invite_preview_enabled: "true",
+    group_max_members: "20",
+    group_rollcall_enabled: "true",
+    group_reactions_enabled: "true",
+    group_chat_enabled: "true",
+    private_mode_enabled: "true",
+    private_mode: "true",
+    viewer_mode: "true",
+    viewer_mode_enabled: "true",
+    close_friends_enabled: "true",
+    close_friends: "true",
+    close_friends_max: "10",
+    private_account_enabled: "true",
+    friend_approval_required: "false",
+    hidden_from_discovery: "false"
+});
+
+// 8f. VIEWER MODE — xem ai xem ảnh
+Object.assign(obj.entries, {
+    moment_views_enabled: "true",
+    moment_views_v2: "true",
+    record_moment_views: "true",
+    notify_moment_views: "true",
+    get_moment_views_as_cloud_function: "true",
+    view_count_public: "true",
+    view_list_enabled: "true",
+    viewer_notification_enabled: "true",
+    moment_reactions_v2: "true",
+    react_to_moment_enabled: "true",
+    moment_reaction_palette: JSON.stringify(["❤️","😍","😂","🔥","💛","🥰"])
+});
+
+// 8g. PROFILE & BADGE v2.74
+Object.assign(obj.entries, {
+    profile_badge_visible: "true",
+    gold_badge_enabled: "true",
+    gold_since_badge: "true",
+    goldSinceBadge: "true",
+    gold_badge_profile_menu: "true",
+    profile_menu_v2_enabled: "true",
+    custom_profile_pics: "true",
+    profile_cover: "true",
+    profile_cover_photo: "true",
+    profile_customization: "true",
+    username_suggestions_enabled: "true",
+    user_data_export_enabled: "true",
+    profile_link_enabled: "true",
+    profile_qr_enabled: "true",
+    qr_code_config: JSON.stringify({ profile_enabled: true, scanning_enabled: true })
+});
+
+// 8h. STREAKS v2.74
+Object.assign(obj.entries, {
+    streaks: "true",
+    streak: "true",
+    streak_recovery: "true",
+    streakRecovery: "true",
+    streak_visualizations: "true",
+    streak_badge: "true",
+    streak_visualization_style: "gradient",
+    streak_visualization_minimum_count: "2",
+    streak_header_minimum_count: "0",
+    streak_notification_enabled: "true",
+    streak_live_activity: "true"
+});
+
+// 8i. TIME TRAVEL & MEMORIES
+Object.assign(obj.entries, {
+    time_travel_rewind_v2_enabled: "true",
+    calendar_delete_moment_enabled: "true",
+    calendar_rewind_enabled: "true",
+    locket_yearbook_story_sharing_encouraged: "true",
+    history_cache_age_days: "1000",
+    share_history_config: JSON.stringify({ prompt_enabled: false, fetching_enabled: true }),
+    use_thumbnails_for_sharing: "true",
+    use_thumbnails_in_timeline: "true"
+});
+
+// ============================================================
+// 8j. CAMERA UI CONFIG v2.74 — Timer 3s/5s/10s + Zoom .5x/1x/2x
+// ============================================================
+Object.assign(obj.entries, {
+    camera_ui_version: "2.74",
+    camera_timer_enabled: "true",
+    camera_timer_options: JSON.stringify([3, 5, 10]),
+    camera_timer_3s_enabled: "true",
+    camera_timer_5s_enabled: "true",
+    camera_timer_10s_enabled: "true",
+    camera_timer_default_seconds: "3",
+    camera_countdown_visual: "true",
+    camera_countdown_audio: "true",
+    camera_zoom_enabled: "true",
+    camera_zoom_05x: "true",
+    camera_zoom_1x: "true",
+    camera_zoom_2x: "true",
+    camera_zoom_presets: JSON.stringify([0.5, 1.0, 2.0]),
+    camera_zoom_smooth_transition: "true",
+    camera_zoom_pinch: "true",
+    camera_mic_button: "true",
+    camera_mic_mute: "true",
+    camera_flash_button: "true",
+    camera_roll_quick_access: "true",
+    camera_dark_viewfinder: "true",
+    camera_viewfinder_rounded_corners: "true",
+    camera_lens_switcher_style: "pill",
+    camera_lens_switcher_position: "bottom_center",
+    camera_timer_panel_position: "right_side",
+    camera_timer_panel_style: "vertical_list",
+    camera_controls_top_left: JSON.stringify(["flash", "mic_mute"]),
+    camera_controls_top_right: JSON.stringify(["close", "timer_panel"]),
+    camera_controls_bottom_left: JSON.stringify(["camera_roll"]),
+    camera_controls_bottom_center: JSON.stringify(["zoom_presets"]),
+    camera_controls_bottom_right: JSON.stringify([]),
+    ultra_wide_enabled: "true",
+    ultra_wide_zoom_level: "0.5",
+    telephoto_enabled: "true",
+    telephoto_zoom_level: "2.0"
+});
 
 $done({
     body: JSON.stringify(obj)
