@@ -538,21 +538,8 @@ var customPhotoboothFilters = [
     mkFilter("sinh_nh_t_hello_kitty_ho_i_c",         "Sinh Nhật Hello Kitty", ["#FF758C","#FF7EB3"], FRAME+"sinh_nh_t_hello_kitty_ho_i_c.png",         "heart.fill", "cutout"),
     mkFilter("pb_single_y2k_silver_holo",            "Khung Y2K Silver Holo", ["#C4B5FD","#E0E7FF"], FRAME+"pb_single_y2k_silver_holo.png",            "heart.fill", "cutout"),
     mkFilter("pb_single_denim_ripped",               "Khung Denim Cá Tính",   ["#38BDF8","#93C5FD"], FRAME+"pb_single_denim_ripped.png",               "heart.fill", "cutout"),
-    mkFilter("pb_single_film_nostalgia",             "Khung Film Hoài Cổ",    ["#D6A36A","#FDE68A"], FRAME+"pb_single_film_nostalgia.png",             "heart.fill", "cutout"),
+    mkFilter("pb_single_film_nostalgia",             "Khung Film Hoài Cổ",    ["#D6A36A","#FDE68A"], FRAME+"pb_single_film_nostalgia.png",             "heart.fill", "cutout")
 
-    // — Retro Camera —
-    mkFilter("c_back_dslr",    "DSLR Vintage",    ["#222222","#555555"], FRAME+"c_back_dslr.png",    "camera.fill", "cutout"),
-    mkFilter("c_red_vintage",  "Máy Ảnh Đỏ",     ["#B71C1C","#E53935"], FRAME+"c_red_vintage.png",  "camera.fill", "cutout"),
-    mkFilter("c_olive_vintage","Máy Ảnh Olive",   ["#556B2F","#8A9A5B"], FRAME+"c_olive_vintage.png","camera.fill", "cutout"),
-    mkFilter("c_orange_retro", "Máy Ảnh Cam",     ["#E65100","#FF9800"], FRAME+"c_orange_retro.png", "camera.fill", "cutout"),
-    mkFilter("c_classic_silver","Máy Ảnh Bạc",   ["#9E9E9E","#E0E0E0"], FRAME+"c_classic_silver.png","camera.fill","cutout"),
-
-    // — Cute Camera —
-    mkFilter("c_white","Máy Ảnh Trắng",["#FAFAFA","#EEEEEE"],FRAME+"c_white.png","camera.fill","cutout"),
-    mkFilter("c_1",    "Cute Camera 1", ["#F8BBD0","#F48FB1"],FRAME+"c_1.png",   "camera.fill","cutout"),
-    mkFilter("c_2",    "Cute Camera 2", ["#B2EBF2","#80DEEA"],FRAME+"c_2.png",   "camera.fill","cutout"),
-    mkFilter("c_3",    "Cute Camera 3", ["#FFF59D","#FFEE58"],FRAME+"c_3.png",   "camera.fill","cutout"),
-    mkFilter("c_4",    "Cute Camera 4", ["#D1C4E9","#B39DDB"],FRAME+"c_4.png",   "camera.fill","cutout")
 ];
 
 // ============================================================
@@ -562,8 +549,6 @@ var customFilterGroups = [
     { id: "group_tarots",      title: { en: "TAROT" },            filter_ids: ["tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","tr_temperance"], requires_gold: false, unlocked: true, free: true },
     { id: "group_photobooth",  title: { en: "KHUNG & PHOTOBOOTH"},filter_ids: ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], requires_gold: false, unlocked: true, free: true },
     { id: "group_frames",      title: { en: "KHUNG VIỀN" },       filter_ids: ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], requires_gold: false, unlocked: true, free: true },
-    { id: "group_camera",      title: { en: "RETRO CAMERA" },     filter_ids: ["c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver"], requires_gold: false, unlocked: true, free: true },
-    { id: "group_camera_two",  title: { en: "CUTE CAMERA" },      filter_ids: ["c_white","c_1","c_2","c_3","c_4"], requires_gold: false, unlocked: true, free: true },
     { id: "group_goofy",       title: { en: "GOOFY" },            filter_ids: ["okay_wig","influencer","looks_maxxing","toothless","bye_brows"], requires_gold: false, unlocked: true, free: true },
     { id: "group_looks",       title: { en: "LOOKS" },            filter_ids: ["bowling_ball","blonde_bleached","beard","bob_cut","buns","tatted","mohawk","braces","bye_brows"], requires_gold: false, unlocked: true, free: true },
     { id: "group_celebrate",   title: { en: "CELEBRATE" },        filter_ids: ["slimed","princess","disco_lights","cash_money","happy_birthday"], requires_gold: false, unlocked: true, free: true },
@@ -596,10 +581,7 @@ var customPickerFilters = [
     "khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u",
     "khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao",
     "khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c",
-    "pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia",
-    // Camera
-    "c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver",
-    "c_white","c_1","c_2","c_3","c_4"
+    "pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
 var locketCameraFilterConfig = {
