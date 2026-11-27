@@ -22,20 +22,112 @@ obj.entries = obj.entries || {};
 obj.entries.cache_ttl_seconds = "0";
 obj.entries.client_cache_ttl_sec = "0";
 
+var paywallConfigPayload = {
+    uid: "v4_vietnam_yearly",
+    title: { en: "Locket Gold", vi: "Locket Gold" },
+    subtitle: {
+        en: "Members have so much\nmore fun on Locket!",
+        vi: "Các thành viên có thể làm nhiều\nđiều thật vui nhộn trên Locket"
+    },
+    primary_button_title: { en: "Upgrade your Locket", vi: "Nâng cấp Locket của bạn" },
+    primary_button_icon: "lock.open.fill",
+    dismiss_button_title: { en: "No thanks!", vi: "Không, cảm ơn!" },
+    fade_in_animation: false,
+    button_container_style: "fade",
+    subscribe_sheet_title: { en: "Subscribe to\nLocket Gold", vi: "Đăng ký gói\nLocket Gold" },
+    subscribe_button_title: { en: "Subscribe", vi: "Đăng ký gói" },
+    coming_soon_title: { en: "Coming soon!", vi: "Sắp có!" },
+    coming_soon_subtitle: {
+        en: "You haven't been charged, but you’ll be the first to know once it’s ready.",
+        vi: "Bạn chưa bị trừ tiền, nhưng bạn sẽ được thông báo đầu tiên sau khi mọi thứ đã sẵn sàng."
+    },
+    compact_profile_banner_title: { en: "Get Locket Gold", vi: "Thử Locket Gold" },
+    profile_banner_title: { en: "Locket Gold", vi: "Locket Gold" },
+    profile_banner_subtitle: { en: "Unlock the best of Locket", vi: "Mở khóa các tính năng tốt nhất của Locket" },
+    completed_title: { en: "Welcome to Gold!", vi: "Chào mừng bạn đến với Locket Gold!" },
+    completed_subtitle: {
+        en: "You now have access to all Locket Gold features. We’re always adding more benefits, so check back soon.",
+        vi: "Giờ đây bạn đã có quyền truy cập tất cả các tính năng của Locket Gold!"
+    },
+    completed_button_title: { en: "Done", vi: "Xong" },
+    early_access_title: { en: "Early access!", vi: "Truy cập sớm!" },
+    primary_features: [
+        {
+            emoji: "🚫",
+            title: { en: "Remove ads", vi: "Không có quảng cáo!" },
+            subtitle: { en: "Never see an ad in History!", vi: "Không bao giờ nhìn thấy một quảng cáo nào nữa" }
+        },
+        {
+            emoji: "🎥",
+            title: { en: "Video Lockets", vi: "Video Lockets" },
+            subtitle: { en: "Record short video clips!", vi: "Ghi lại các video clip ngắn!" },
+            early_access: true
+        },
+        {
+            emoji: "👀",
+            title: { en: "Locket views", vi: "Lượt xem Locket" },
+            subtitle: { en: "See who's opened your Lockets", vi: "Xem những người đã mở Locket của bạn" }
+        },
+        {
+            emoji: "🏞️",
+            title: { en: "Upload from camera roll", vi: "Tải lên từ cuộn camera" },
+            subtitle: { en: "Share memories from your library", vi: "Chia sẻ các kỷ niệm từ thư viện của bạn" }
+        },
+        {
+            emoji: "❤️‍🔥",
+            title: { en: "Unlimited friends", vi: "Thêm bạn bè tùy ý" },
+            subtitle: { en: "Add as many friends as you’d like!", vi: "Thêm bao nhiêu bạn bè tùy ý!" },
+            early_access: true
+        },
+        {
+            emoji: "💛",
+            title: { en: "Custom app icon", vi: "Biểu tượng ứng dụng tùy chỉnh" },
+            subtitle: { en: "Decorate your Home Screen", vi: "Trang trí Màn hình chính của bạn" }
+        },
+        {
+            emoji: "💬",
+            title: { en: "Send longer captions", vi: "Gửi phụ đề dài hơn" },
+            subtitle: { en: "Type even more on your photos!", vi: "Điền nhiều nội dung hơn nữa trên các ảnh của bạn!" }
+        }
+    ],
+    secondary_features: [
+        { emoji: "🆕", title: { en: "Early product updates", vi: "Truy cập tính năng mới sớm hơn" } },
+        { emoji: "🎁", title: { en: "Monthly feature drops", vi: "Phát hành tính năng mới hằng tháng" } },
+        { emoji: "🏅", title: { en: "Membership badge", vi: "Huy hiệu thành viên" } }
+    ],
+    offering_kind: "prod",
+    plans: [
+        { title: { en: "1 Year", vi: "1 năm" }, package: "locket_1600_1y" },
+        { title: { en: "1 Month", vi: "1 tháng" }, package: "locket_199_1m" }
+    ]
+};
+
 // 1. FEATURE GATES, PAYWALL, CỜ GOLD
 Object.assign(obj.entries, {
     feature_gates: JSON.stringify({
-        app_icon_picker: "enabled", camera_roll: "enabled", camera_roll_video: "enabled",
-        camera_roll_video_30s: "enabled", camera_roll_video_upload: "enabled",
-        camera_roll_video_upload_30s: "enabled", camera_roll_longer_video: "enabled",
-        camera_roll_longer_video_30s: "enabled", camera_theme: "enabled",
-        locket_views: "enabled", long_captions: "enabled", longer_video: "enabled",
+        app_icon_picker: "enabled", appIconPicker: "enabled",
+        camera_roll: "enabled", cameraRoll: "enabled",
+        camera_roll_video: "enabled", cameraRollVideo: "enabled",
+        camera_roll_video_30s: "enabled",
+        camera_roll_video_upload: "enabled", cameraRollVideoUpload: "enabled",
+        camera_roll_video_upload_30s: "enabled",
+        camera_roll_longer_video: "enabled", camera_roll_longer_video_30s: "enabled",
+        camera_theme: "enabled", cameraTheme: "enabled",
+        locket_views: "enabled", locketViews: "enabled",
+        moment_views: "enabled", momentViews: "enabled",
+        moment_view: "enabled", momentView: "enabled",
+        long_captions: "enabled", longCaptions: "enabled",
+        longer_video: "enabled", longerVideo: "enabled",
+        longer_videos: "enabled", longerVideos: "enabled",
         longer_video_30s: "enabled", extended_video_30s: "enabled",
         photo_library_video: "enabled", photo_library_video_30s: "enabled",
         gallery_video: "enabled", gallery_video_30s: "enabled",
         can_upload_30s_video: "enabled", can_record_30s_video: "enabled",
         allow_longer_video_upload: "enabled", longer_video_upload: "enabled",
-        unlimited_friends: "enabled", priority_support: "enabled",
+        video_sound: "enabled", videoSound: "enabled",
+        camera_microphone: "enabled", cameraMicrophone: "enabled",
+        unlimited_friends: "enabled", unlimitedFriends: "enabled",
+        priority_support: "enabled",
         profile_badge: "enabled", profileBadge: "enabled",
         gold_badge: "enabled", goldBadge: "enabled",
         gold_since: "enabled", gold_since_badge: "enabled", goldSinceBadge: "enabled",
@@ -43,14 +135,20 @@ Object.assign(obj.entries, {
         profile_gold_badge: "enabled", profile_gold_card: "enabled",
         gold_membership_card: "enabled", gold_card: "enabled",
         profile_badge_visible: "enabled", gold_badge_profile_menu: "enabled",
-        remove_ads: "enabled", video: "enabled", video_15s: "enabled",
-        video_30s: "enabled", video_40s: "enabled", video_60s: "enabled",
-        video_upload: "enabled", video_upload_30s: "enabled",
-        custom_widget_frames: "enabled", streak_recovery: "enabled",
-        streakRecovery: "enabled", streaks: "enabled", streak: "enabled",
-        streak_visualizations: "enabled", streak_badge: "enabled",
-        groups: "enabled", private_mode: "enabled", viewer_mode: "enabled",
-        close_friends: "enabled", camera_filter_sheet: "enabled",
+        remove_ads: "enabled", removeAds: "enabled",
+        video: "enabled", video_15s: "enabled", video_30s: "enabled",
+        video_40s: "enabled", video_60s: "enabled", video_upload: "enabled",
+        video_upload_30s: "enabled",
+        custom_widget_frames: "enabled", customWidgetFrames: "enabled",
+        streak_recovery: "enabled", streakRecovery: "enabled",
+        streaks: "enabled", streak: "enabled", streak_visualizations: "enabled",
+        streak_badge: "enabled", groups: "enabled", private_mode: "enabled",
+        viewer_mode: "enabled", close_friends: "enabled", closeFriends: "enabled",
+        best_friends: "enabled", bestFriends: "enabled",
+        send_to_self: "enabled", sendToSelf: "enabled",
+        send_to_self_only: "enabled", sendToSelfOnly: "enabled",
+        qr_code: "enabled", qrCode: "enabled",
+        camera_filter_sheet: "enabled", cameraFilterSheet: "enabled",
         camera_filters: "enabled", camera_filter: "enabled", filter: "enabled",
         filters: "enabled", photo_filters: "enabled", ai_filters: "enabled",
         holiday_effects: "enabled", holiday_filters: "enabled",
@@ -61,97 +159,26 @@ Object.assign(obj.entries, {
     upsell_features: JSON.stringify({
         app_icon_picker: false, camera_roll: false, camera_theme: false,
         locket_views: false, remove_ads: false, custom_widget_frames: false,
+        unlimited_friends: false,
         filter: false, filters: false, camera_filter: false, camera_filters: false,
         holiday_filter: false, holiday_filters: false, holiday_effects: false,
         ai_filter: false, ai_filters: false
     }),
     paywall_presentation_config: JSON.stringify({
-        uid: "paywall_testflight", onboarding: false, after_sent_moment: false,
+        uid: "v1_no_popup", onboarding: false, after_sent_moment: false,
         after_moment: false, after_capture: false, on_foreground: false,
         holiday_effects: false, camera_filters: false, camera_filter: false,
         filters: false, filter: false, ai_filter: false, ai_filters: false,
         filtered_image: false, filtered_images: false, generate_filtered_image: false,
         interval: 2592000, profile_banner: true
     }),
-    paywall_config: JSON.stringify({
-        uid: "v4_vietnam_yearly",
-        title: { en: "Locket Gold", vi: "Locket Gold" },
-        subtitle: {
-            en: "Members have so much\nmore fun on Locket!",
-            vi: "Các thành viên có thể làm nhiều\nđiều thật vui nhộn trên Locket"
-        },
-        primary_button_title: { en: "Upgrade your Locket", vi: "Nâng cấp Locket của bạn" },
-        primary_button_icon: "lock.open.fill",
-        dismiss_button_title: { en: "No thanks!", vi: "Không, cảm ơn!" },
-        fade_in_animation: false,
-        button_container_style: "fade",
-        subscribe_sheet_title: { en: "Subscribe to\nLocket Gold", vi: "Đăng ký gói\nLocket Gold" },
-        subscribe_button_title: { en: "Subscribe", vi: "Đăng ký gói" },
-        coming_soon_title: { en: "Coming soon!", vi: "Sắp có!" },
-        coming_soon_subtitle: {
-            en: "You haven't been charged, but you’ll be the first to know once it’s ready.",
-            vi: "Bạn chưa bị trừ tiền, nhưng bạn sẽ được thông báo đầu tiên sau khi mọi thứ đã sẵn sàng."
-        },
-        compact_profile_banner_title: { en: "Get Locket Gold", vi: "Thử Locket Gold" },
-        profile_banner_title: { en: "Locket Gold", vi: "Locket Gold" },
-        profile_banner_subtitle: { en: "Unlock the best of Locket", vi: "Mở khóa các tính năng tốt nhất của Locket" },
-        completed_title: { en: "Welcome to Gold!", vi: "Chào mừng bạn đến với Locket Gold!" },
-        completed_subtitle: {
-            en: "You now have access to all Locket Gold features. We’re always adding more benefits, so check back soon.",
-            vi: "Giờ đây bạn đã có quyền truy cập tất cả các tính năng của Locket Gold!"
-        },
-        completed_button_title: { en: "Done", vi: "Xong" },
-        early_access_title: { en: "Early access!", vi: "Truy cập sớm!" },
-        primary_features: [
-            {
-                emoji: "🚫",
-                title: { en: "Remove ads", vi: "Không có quảng cáo!" },
-                subtitle: { en: "Never see an ad in History!", vi: "Không bao giờ nhìn thấy một quảng cáo nào nữa" }
-            },
-            {
-                emoji: "🎥",
-                title: { en: "Video Lockets", vi: "Video Lockets" },
-                subtitle: { en: "Record short video clips!", vi: "Ghi lại các video clip ngắn!" },
-                early_access: true
-            },
-            {
-                emoji: "👀",
-                title: { en: "Locket views", vi: "Lượt xem Locket" },
-                subtitle: { en: "See who's opened your Lockets", vi: "Xem những người đã mở Locket của bạn" }
-            },
-            {
-                emoji: "🏞️",
-                title: { en: "Upload from camera roll", vi: "Tải lên từ cuộn camera" },
-                subtitle: { en: "Share memories from your library", vi: "Chia sẻ các kỷ niệm từ thư viện của bạn" }
-            },
-            {
-                emoji: "❤️‍🔥",
-                title: { en: "Unlimited friends", vi: "Thêm bạn bè tùy ý" },
-                subtitle: { en: "Add as many friends as you’d like!", vi: "Thêm bao nhiêu bạn bè tùy ý!" },
-                early_access: true
-            },
-            {
-                emoji: "💛",
-                title: { en: "Custom app icon", vi: "Biểu tượng ứng dụng tùy chỉnh" },
-                subtitle: { en: "Decorate your Home Screen", vi: "Trang trí Màn hình chính của bạn" }
-            },
-            {
-                emoji: "💬",
-                title: { en: "Send longer captions", vi: "Gửi phụ đề dài hơn" },
-                subtitle: { en: "Type even more on your photos!", vi: "Điền nhiều nội dung hơn nữa trên các ảnh của bạn!" }
-            }
-        ],
-        secondary_features: [
-            { emoji: "🆕", title: { en: "Early product updates", vi: "Truy cập tính năng mới sớm hơn" } },
-            { emoji: "🎁", title: { en: "Monthly feature drops", vi: "Phát hành tính năng mới hằng tháng" } },
-            { emoji: "🏅", title: { en: "Membership badge", vi: "Huy hiệu thành viên" } }
-        ],
-        offering_kind: "prod",
-        plans: [
-            { title: { en: "1 Year", vi: "1 năm" }, package: "locket_1600_1y" },
-            { title: { en: "1 Month", vi: "1 tháng" }, package: "locket_199_1m" }
-        ]
-    }),
+    paywall_config: JSON.stringify(paywallConfigPayload),
+    purchases_enabled: "true",
+    purchases_entitlement: "Gold",
+    paywall_local_trial_unlocked: "true",
+    test_flight_purchase_override_enabled: "true",
+    gold_subscription_override: "true",
+    profile_gold_banner_features_enabled: "true",
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
@@ -720,6 +747,12 @@ function hamVaForceOverride(entries) {
     entries["user_is_gold"] = "true";
     entries["gold_user"] = "true";
     entries["gold_active"] = "true";
+    entries["purchases_enabled"] = "true";
+    entries["purchases_entitlement"] = "Gold";
+    entries["paywall_local_trial_unlocked"] = "true";
+    entries["test_flight_purchase_override_enabled"] = "true";
+    entries["gold_subscription_override"] = "true";
+    entries["paywall_config"] = JSON.stringify(paywallConfigPayload);
     entries["all_filters_free"] = "true";
     entries["unlocked_filters"] = "true";
     entries["free_filters_enabled"] = "true";
