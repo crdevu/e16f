@@ -22,135 +22,33 @@ obj.entries = obj.entries || {};
 obj.entries.cache_ttl_seconds = "0";
 obj.entries.client_cache_ttl_sec = "0";
 
-var paywallConfigPayload = {
-    uid: "v4_vietnam_yearly",
-    title: { en: "Locket Gold", vi: "Locket Gold" },
-    subtitle: {
-        en: "Members have so much\nmore fun on Locket!",
-        vi: "Các thành viên có thể làm nhiều\nđiều thật vui nhộn trên Locket"
-    },
-    primary_button_title: { en: "Upgrade your Locket", vi: "Nâng cấp Locket của bạn" },
-    primary_button_icon: "lock.open.fill",
-    dismiss_button_title: { en: "No thanks!", vi: "Không, cảm ơn!" },
-    fade_in_animation: false,
-    button_container_style: "fade",
-    subscribe_sheet_title: { en: "Subscribe to\nLocket Gold", vi: "Đăng ký gói\nLocket Gold" },
-    subscribe_button_title: { en: "Subscribe", vi: "Đăng ký gói" },
-    coming_soon_title: { en: "Coming soon!", vi: "Sắp có!" },
-    coming_soon_subtitle: {
-        en: "You haven't been charged, but you’ll be the first to know once it’s ready.",
-        vi: "Bạn chưa bị trừ tiền, nhưng bạn sẽ được thông báo đầu tiên sau khi mọi thứ đã sẵn sàng."
-    },
-    compact_profile_banner_title: { en: "Get Locket Gold", vi: "Thử Locket Gold" },
-    profile_banner_title: { en: "Locket Gold", vi: "Locket Gold" },
-    profile_banner_subtitle: { en: "Unlock the best of Locket", vi: "Mở khóa các tính năng tốt nhất của Locket" },
-    completed_title: { en: "Welcome to Gold!", vi: "Chào mừng bạn đến với Locket Gold!" },
-    completed_subtitle: {
-        en: "You now have access to all Locket Gold features. We’re always adding more benefits, so check back soon.",
-        vi: "Giờ đây bạn đã có quyền truy cập tất cả các tính năng của Locket Gold!"
-    },
-    completed_button_title: { en: "Done", vi: "Xong" },
-    early_access_title: { en: "Early access!", vi: "Truy cập sớm!" },
-    primary_features: [
-        {
-            emoji: "🚫",
-            title: { en: "Remove ads", vi: "Không có quảng cáo!" },
-            subtitle: { en: "Never see an ad in History!", vi: "Không bao giờ nhìn thấy một quảng cáo nào nữa" }
-        },
-        {
-            emoji: "🎥",
-            title: { en: "Video Lockets", vi: "Video Lockets" },
-            subtitle: { en: "Record short video clips!", vi: "Ghi lại các video clip ngắn!" },
-            early_access: true
-        },
-        {
-            emoji: "👀",
-            title: { en: "Locket views", vi: "Lượt xem Locket" },
-            subtitle: { en: "See who's opened your Lockets", vi: "Xem những người đã mở Locket của bạn" }
-        },
-        {
-            emoji: "🏞️",
-            title: { en: "Upload from camera roll", vi: "Tải lên từ cuộn camera" },
-            subtitle: { en: "Share memories from your library", vi: "Chia sẻ các kỷ niệm từ thư viện của bạn" }
-        },
-        {
-            emoji: "❤️‍🔥",
-            title: { en: "Unlimited friends", vi: "Thêm bạn bè tùy ý" },
-            subtitle: { en: "Add as many friends as you’d like!", vi: "Thêm bao nhiêu bạn bè tùy ý!" },
-            early_access: true
-        },
-        {
-            emoji: "💛",
-            title: { en: "Custom app icon", vi: "Biểu tượng ứng dụng tùy chỉnh" },
-            subtitle: { en: "Decorate your Home Screen", vi: "Trang trí Màn hình chính của bạn" }
-        },
-        {
-            emoji: "💬",
-            title: { en: "Send longer captions", vi: "Gửi phụ đề dài hơn" },
-            subtitle: { en: "Type even more on your photos!", vi: "Điền nhiều nội dung hơn nữa trên các ảnh của bạn!" }
-        }
-    ],
-    secondary_features: [
-        { emoji: "🆕", title: { en: "Early product updates", vi: "Truy cập tính năng mới sớm hơn" } },
-        { emoji: "🎁", title: { en: "Monthly feature drops", vi: "Phát hành tính năng mới hằng tháng" } },
-        { emoji: "🏅", title: { en: "Membership badge", vi: "Huy hiệu thành viên" } }
-    ],
-    offering_kind: "prod",
-    plans: [
-        { title: { en: "1 Year", vi: "1 năm" }, package: "locket_1600_1y" },
-        { title: { en: "1 Month", vi: "1 tháng" }, package: "locket_199_1m" }
-    ]
-};
-
 // 1. FEATURE GATES, PAYWALL, CỜ GOLD
 Object.assign(obj.entries, {
     feature_gates: JSON.stringify({
-        app_icon_picker: "enabled", appIconPicker: "enabled",
-        camera_roll: "enabled", cameraRoll: "enabled",
-        camera_roll_video: "enabled", cameraRollVideo: "enabled",
-        camera_roll_video_30s: "enabled",
-        camera_roll_video_upload: "enabled", cameraRollVideoUpload: "enabled",
-        camera_roll_video_upload_30s: "enabled",
-        camera_roll_longer_video: "enabled", camera_roll_longer_video_30s: "enabled",
-        camera_theme: "enabled", cameraTheme: "enabled",
-        locket_views: "enabled", locketViews: "enabled",
-        moment_views: "enabled", momentViews: "enabled",
-        moment_view: "enabled", momentView: "enabled",
-        long_captions: "enabled", longCaptions: "enabled",
-        longer_video: "enabled", longerVideo: "enabled",
-        longer_videos: "enabled", longerVideos: "enabled",
+        app_icon_picker: "enabled", camera_roll: "enabled", camera_roll_video: "enabled",
+        camera_roll_video_30s: "enabled", camera_roll_video_upload: "enabled",
+        camera_roll_video_upload_30s: "enabled", camera_roll_longer_video: "enabled",
+        camera_roll_longer_video_30s: "enabled", camera_theme: "enabled",
+        locket_views: "enabled", long_captions: "enabled", longer_video: "enabled",
         longer_video_30s: "enabled", extended_video_30s: "enabled",
         photo_library_video: "enabled", photo_library_video_30s: "enabled",
         gallery_video: "enabled", gallery_video_30s: "enabled",
         can_upload_30s_video: "enabled", can_record_30s_video: "enabled",
         allow_longer_video_upload: "enabled", longer_video_upload: "enabled",
-        video_sound: "enabled", videoSound: "enabled",
-        camera_microphone: "enabled", cameraMicrophone: "enabled",
-        unlimited_friends: "enabled", unlimitedFriends: "enabled",
-        priority_support: "enabled",
+        unlimited_friends: "enabled", priority_support: "enabled",
         profile_badge: "enabled", profileBadge: "enabled",
-        gold_badge: "enabled", goldBadge: "enabled",
-        gold_since: "enabled", gold_since_badge: "enabled", goldSinceBadge: "enabled",
-        gold_member_since: "enabled", show_gold_since: "enabled",
-        profile_gold_badge: "enabled", profile_gold_card: "enabled",
-        gold_membership_card: "enabled", gold_card: "enabled",
-        profile_badge_visible: "enabled", gold_badge_profile_menu: "enabled",
-        remove_ads: "enabled", removeAds: "enabled",
+        gold_since_badge: "enabled", goldSinceBadge: "enabled",
+        gold_badge_profile_menu: "enabled", remove_ads: "enabled",
         video: "enabled", video_15s: "enabled", video_30s: "enabled",
         video_40s: "enabled", video_60s: "enabled", video_upload: "enabled",
-        video_upload_30s: "enabled",
-        custom_widget_frames: "enabled", customWidgetFrames: "enabled",
+        video_upload_30s: "enabled", custom_widget_frames: "enabled",
         streak_recovery: "enabled", streakRecovery: "enabled",
         streaks: "enabled", streak: "enabled", streak_visualizations: "enabled",
         streak_badge: "enabled", groups: "enabled", private_mode: "enabled",
-        viewer_mode: "enabled", close_friends: "enabled", closeFriends: "enabled",
-        best_friends: "enabled", bestFriends: "enabled",
-        send_to_self: "enabled", sendToSelf: "enabled",
-        send_to_self_only: "enabled", sendToSelfOnly: "enabled",
-        qr_code: "enabled", qrCode: "enabled",
-        camera_filter_sheet: "enabled", cameraFilterSheet: "enabled",
-        camera_filters: "enabled", camera_filter: "enabled", filter: "enabled",
-        filters: "enabled", photo_filters: "enabled", ai_filters: "enabled",
+        viewer_mode: "enabled", close_friends: "enabled",
+        camera_filter_sheet: "enabled", camera_filters: "enabled",
+        camera_filter: "enabled", filter: "enabled", filters: "enabled",
+        photo_filters: "enabled", ai_filters: "enabled",
         holiday_effects: "enabled", holiday_filters: "enabled",
         holiday_filter: "enabled", ar_filters: "enabled",
         face_filters: "enabled", profile_cover: "enabled",
@@ -159,26 +57,18 @@ Object.assign(obj.entries, {
     upsell_features: JSON.stringify({
         app_icon_picker: false, camera_roll: false, camera_theme: false,
         locket_views: false, remove_ads: false, custom_widget_frames: false,
-        unlimited_friends: false,
         filter: false, filters: false, camera_filter: false, camera_filters: false,
         holiday_filter: false, holiday_filters: false, holiday_effects: false,
         ai_filter: false, ai_filters: false
     }),
     paywall_presentation_config: JSON.stringify({
-        uid: "v1_no_popup", onboarding: false, after_sent_moment: false,
+        uid: "paywall_testflight", onboarding: false, after_sent_moment: false,
         after_moment: false, after_capture: false, on_foreground: false,
         holiday_effects: false, camera_filters: false, camera_filter: false,
         filters: false, filter: false, ai_filter: false, ai_filters: false,
         filtered_image: false, filtered_images: false, generate_filtered_image: false,
         interval: 2592000, profile_banner: true
     }),
-    paywall_config: JSON.stringify(paywallConfigPayload),
-    purchases_enabled: "true",
-    purchases_entitlement: "Gold",
-    paywall_local_trial_unlocked: "true",
-    test_flight_purchase_override_enabled: "true",
-    gold_subscription_override: "true",
-    profile_gold_banner_features_enabled: "true",
     feature_discovery_popup_config: JSON.stringify({
         tag: "LOCKET GOLD ALL FEATURES", tag_gradient: true, tag_style: "gold_gradient",
         title: "Welcome To Locket Gold",
@@ -191,6 +81,17 @@ Object.assign(obj.entries, {
     lunar_new_year_app_icon_enabled: "true",
     settings_instagram_url: "https://www.instagram.com/",
     settings_tiktok_url: "https://tiktok.com/"
+});
+
+// Gold badge / profile display flags
+Object.assign(obj.entries, {
+    gold_camera_themes: "enabled", profileBadge: "enabled",
+    gold_badge: "enabled", goldBadge: "enabled",
+    gold_since: "enabled", gold_since_badge: "enabled",
+    gold_member_since: "enabled", show_gold_since: "enabled",
+    profile_gold_badge: "enabled", profile_gold_card: "enabled",
+    gold_membership_card: "enabled", gold_card: "enabled",
+    profile_badge_visible: "enabled", gold_badge_profile_menu: "enabled"
 });
 
 Object.assign(obj.entries, {
@@ -251,7 +152,16 @@ obj.entries.camera_roll = JSON.stringify({
     camera_roll_video_max_duration: MY_VIDEO_DURATION,
     max_file_size: MAX_SIZE_BYTES, max_upload_bytes: MAX_SIZE_BYTES,
     max_size_bytes: MAX_SIZE_BYTES, quality_mbps: 0.6, qualityMbps: 0.6,
-    flash_button: true
+    flash_button: true,
+    camera_roll_preview_enabled: true, camera_roll_video_trimming_enabled: true,
+    internal_camera_roll_video_upload_enabled: true,
+    camera_roll_video_upload_enabled: true, camera_roll_upload_enabled: true,
+    camera_roll_video_sound_enabled: true, cameraRollVideoSoundEnabled: true,
+    video_sound_enabled: true, videoSoundEnabled: true,
+    camera_microphone_enabled: true, cameraMicrophoneEnabled: true,
+    microphone_enabled: true, microphoneEnabled: true,
+    sound_enabled: true, soundEnabled: true,
+    audio_enabled: true, audioEnabled: true
 });
 
 // 2A. CAMERA FILTER + CAMERA STYLES REMOTE FLAGS
@@ -272,21 +182,7 @@ Object.assign(cameraFeatureGates, {
     camera_viewfinder_controls: "enabled",
     cameraViewfinderControls: "enabled",
     camera_theme: "enabled",
-    cameraTheme: "enabled",
-    gold_camera_themes: "enabled",
-    profileBadge: "enabled",
-    gold_badge: "enabled",
-    goldBadge: "enabled",
-    gold_since: "enabled",
-    gold_since_badge: "enabled",
-    gold_member_since: "enabled",
-    show_gold_since: "enabled",
-    profile_gold_badge: "enabled",
-    profile_gold_card: "enabled",
-    gold_membership_card: "enabled",
-    gold_card: "enabled",
-    profile_badge_visible: "enabled",
-    gold_badge_profile_menu: "enabled"
+    cameraTheme: "enabled"
 });
 obj.entries.feature_gates = JSON.stringify(cameraFeatureGates);
 
@@ -304,21 +200,7 @@ Object.assign(cameraFeatureGateOverrides, {
     cameraViewfinderControls: true,
     camera_viewfinder_controls: true,
     cameraTheme: true,
-    camera_theme: true,
-    gold_camera_themes: true,
-    profileBadge: true,
-    gold_badge: true,
-    goldBadge: true,
-    gold_since: true,
-    gold_since_badge: true,
-    gold_member_since: true,
-    show_gold_since: true,
-    profile_gold_badge: true,
-    profile_gold_card: true,
-    gold_membership_card: true,
-    gold_card: true,
-    profile_badge_visible: true,
-    gold_badge_profile_menu: true
+    camera_theme: true
 });
 obj.entries.feature_gates_override = JSON.stringify(cameraFeatureGateOverrides);
 
@@ -363,15 +245,10 @@ Object.assign(obj.entries, {
     camera_style_fisheye: "true",
     camera_style_laptop: "true",
 
-    camera_roll_preview_enabled: "true",
-    camera_roll_video_enabled: "true",
-    camera_roll_video_trimming_enabled: "true",
+    camera_roll_preview_enabled: "true", camera_roll_video_enabled: "true",
     camera_roll_video_upload_enabled: "true",
-    camera_roll_upload_enabled: "true",
     internal_camera_roll_video_upload_enabled: "true",
     longer_camera_roll_videos_enabled: "true",
-    camera_roll_video_sound_enabled: "true",
-    cameraRollVideoSoundEnabled: "true",
     camera_roll_video_max_duration: durationStr, camera_roll_max_duration: durationStr,
     camera_roll_duration: durationStr, max_video_duration: durationStr,
     video_max_duration: durationStr, video_trim_max_duration: durationStr,
@@ -379,6 +256,7 @@ Object.assign(obj.entries, {
     goldMaxDuration: durationStr, max_file_size: MAX_SIZE_BYTES.toString(),
     max_upload_bytes: MAX_SIZE_BYTES.toString(), video_quality_mbps: "0.6",
     video_sound_enabled: "true", videoSoundEnabled: "true",
+    camera_roll_video_sound_enabled: "true", cameraRollVideoSoundEnabled: "true",
     microphone_enabled: "true", microphoneEnabled: "true",
     camera_microphone_enabled: "true", cameraMicrophoneEnabled: "true",
     sound_enabled: "true", soundEnabled: "true",
@@ -658,19 +536,7 @@ var customPhotoboothFilters = [
     { "uid": "sinh_nh_t_hello_kitty_ho_i_c", "id": "sinh_nh_t_hello_kitty_ho_i_c", "name": "Sinh Nhật Hello Kitty", "prompt": "sinh_nh_t_hello_kitty_ho_i_c", "productUrl": null, "colors": ["#FF758C", "#FF7EB3"], "captureButtonColors": ["#FF758C", "#FF7EB3"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/sinh_nh_t_hello_kitty_ho_i_c.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_y2k_silver_holo", "id": "pb_single_y2k_silver_holo", "name": "Khung Y2K Silver Holo", "prompt": "pb_single_y2k_silver_holo", "productUrl": null, "colors": ["#C4B5FD", "#E0E7FF"], "captureButtonColors": ["#C4B5FD", "#E0E7FF"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_y2k_silver_holo.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
     { "uid": "pb_single_denim_ripped", "id": "pb_single_denim_ripped", "name": "Khung Denim Cá Tính", "prompt": "pb_single_denim_ripped", "productUrl": null, "colors": ["#38BDF8", "#93C5FD"], "captureButtonColors": ["#38BDF8", "#93C5FD"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_denim_ripped.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-
-    // Camera (bổ sung — group_camera / group_camera_two trước đây trỏ tới filter không tồn tại)
-    { "uid": "c_back_dslr", "id": "c_back_dslr", "name": "DSLR Vintage", "prompt": "c_back_dslr", "productUrl": null, "colors": ["#222222", "#555555"], "captureButtonColors": ["#222222", "#555555"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_back_dslr.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_red_vintage", "id": "c_red_vintage", "name": "Máy Ảnh Đỏ", "prompt": "c_red_vintage", "productUrl": null, "colors": ["#B71C1C", "#E53935"], "captureButtonColors": ["#B71C1C", "#E53935"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_red_vintage.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_olive_vintage", "id": "c_olive_vintage", "name": "Máy Ảnh Olive", "prompt": "c_olive_vintage", "productUrl": null, "colors": ["#556B2F", "#8A9A5B"], "captureButtonColors": ["#556B2F", "#8A9A5B"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_olive_vintage.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_orange_retro", "id": "c_orange_retro", "name": "Máy Ảnh Cam", "prompt": "c_orange_retro", "productUrl": null, "colors": ["#E65100", "#FF9800"], "captureButtonColors": ["#E65100", "#FF9800"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_orange_retro.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_classic_silver", "id": "c_classic_silver", "name": "Máy Ảnh Bạc", "prompt": "c_classic_silver", "productUrl": null, "colors": ["#9E9E9E", "#E0E0E0"], "captureButtonColors": ["#9E9E9E", "#E0E0E0"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_classic_silver.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_white", "id": "c_white", "name": "Máy Ảnh Trắng", "prompt": "c_white", "productUrl": null, "colors": ["#FAFAFA", "#EEEEEE"], "captureButtonColors": ["#FAFAFA", "#EEEEEE"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_white.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_1", "id": "c_1", "name": "Cute Camera 1", "prompt": "c_1", "productUrl": null, "colors": ["#F8BBD0", "#F48FB1"], "captureButtonColors": ["#F8BBD0", "#F48FB1"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_1.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_2", "id": "c_2", "name": "Cute Camera 2", "prompt": "c_2", "productUrl": null, "colors": ["#B2EBF2", "#80DEEA"], "captureButtonColors": ["#B2EBF2", "#80DEEA"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_2.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_3", "id": "c_3", "name": "Cute Camera 3", "prompt": "c_3", "productUrl": null, "colors": ["#FFF59D", "#FFEE58"], "captureButtonColors": ["#FFF59D", "#FFEE58"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_3.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" },
-    { "uid": "c_4", "id": "c_4", "name": "Cute Camera 4", "prompt": "c_4", "productUrl": null, "colors": ["#D1C4E9", "#B39DDB"], "captureButtonColors": ["#D1C4E9", "#B39DDB"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "sfSymbol": "camera.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/c_4.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
+    { "uid": "pb_single_film_nostalgia", "id": "pb_single_film_nostalgia", "name": "Khung Film Hoài Cổ", "prompt": "pb_single_film_nostalgia", "productUrl": null, "colors": ["#D6A36A", "#FDE68A"], "captureButtonColors": ["#D6A36A", "#FDE68A"], "icon": { "url": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "remoteImage": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "sfSymbol": "heart.fill", "emoji": "" }, "textColor": "#FFFFFF", "style": "cutout", "overlay": true, "overlayImageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "overlayImageURL": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "imageUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "iconUrl": "https://locket-vip.mhiep20077.workers.dev/assets/frames/pb_single_film_nostalgia.png", "referenceImages": [], "requires_gold": false, "requiresGold": false, "is_gold": false, "isGold": false, "unlocked": true, "is_unlocked": true, "isUnlocked": true, "free": true, "allowsTryFilter": true, "allows_try_filter": true, "tryButtonEnabled": true, "try_button_enabled": true, "type": "normal", "filterType": "cutout" }
 ];
 
 // ============================================================
@@ -680,8 +546,6 @@ var customFilterGroups = [
     { "id": "group_tarots", "title": { "en": "TAROT" }, "filter_ids": ["tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","tr_temperance"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_photobooth", "title": { "en": "KHUNG & PHOTOBOOTH" }, "filter_ids": ["frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_frames", "title": { "en": "KHUNG VIỀN" }, "filter_ids": ["frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_camera", "title": { "en": "RETRO CAMERA" }, "filter_ids": ["c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver"], "requires_gold": false, "unlocked": true, "free": true },
-    { "id": "group_camera_two", "title": { "en": "CUTE CAMERA" }, "filter_ids": ["c_white","c_1","c_2","c_3","c_4"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_goofy", "title": { "en": "GOOFY" }, "filter_ids": ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_looks", "title": { "en": "LOOKS" }, "filter_ids": ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"], "requires_gold": false, "unlocked": true, "free": true },
     { "id": "group_celebrate", "title": { "en": "CELEBRATE" }, "filter_ids": ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"], "requires_gold": false, "unlocked": true, "free": true },
@@ -699,9 +563,7 @@ var customPickerFilters = [
     "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
     "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty",
     "tr_the_magician","tr_all_seing_eye","tr_the_hermit","tr_the_moon","tr_the_sun","tr_wheel_of_forutne","tr_the_high_hierophant","tr_the_high_priestess","tr_temperance",
-    "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia",
-    "c_back_dslr","c_red_vintage","c_olive_vintage","c_orange_retro","c_classic_silver",
-    "c_white","c_1","c_2","c_3","c_4"
+    "frame_berry_days","frame_happy_snap","frame_sky_diary","photobooth_4cut","photobooth_cute","pb_holo_4cut","pb_scrapbook_ripped_4cut","pb_ripped_paper_4cut","pb_denim_ripped_2x2","frame_classic_pb","sticker_b_nh_lu_n_minh_tu","cmt_locket","khung_hello_kitty_pastel_ng_t_ng_o","khung_hello_kitty_h_ng_pastel","khung_nh_n_pastel_vi_n_ren","khung_nh_hoa_pastel_vi_n_xanh_m_nh","khung_nh_vu_ng_m_ng_nh_n_b_c","khung_kh_ng_gian_xanh_pastel","khung_vu_ng_ng_i_sao_h_ng_pastel","khung_nh_pastel_vi_n_s_h_i_c_u","khung_nh_shin_chan_vi_n_m_nh","khung_anh_o_kitty_v_sao","khung_xanh_v_tay_sao_v_ng","sinh_nh_t_hello_kitty_ho_i_c","pb_single_y2k_silver_holo","pb_single_denim_ripped","pb_single_film_nostalgia"
 ];
 
 // CẤU TRÚC un.js GỐC
@@ -727,7 +589,142 @@ Object.assign(obj.entries, {
 });
 
 // ============================================================
-// 7. HÀM VẢ CỰC MẠNH
+// 7. PAYWALL CONFIG + REMOTE KEYS
+// ============================================================
+var paywallConfigPayload = {
+    uid: "v4_vietnam_yearly",
+    title: { en: "Locket Gold", vi: "Locket Gold" },
+    subtitle: {
+        en: "Members have so much\nmore fun on Locket!",
+        vi: "Các thành viên có thể làm nhiều\nđiều thật vui nhộn trên Locket"
+    },
+    primary_button_title: { en: "Upgrade your Locket", vi: "Nâng cấp Locket của bạn" },
+    primary_button_icon: "lock.open.fill",
+    dismiss_button_title: { en: "No thanks!", vi: "Không, cảm ơn!" },
+    fade_in_animation: false,
+    button_container_style: "fade",
+    subscribe_sheet_title: { en: "Subscribe to\nLocket Gold", vi: "Đăng ký gói\nLocket Gold" },
+    subscribe_button_title: { en: "Subscribe", vi: "Đăng ký gói" },
+    coming_soon_title: { en: "Coming soon!", vi: "Sắp có!" },
+    coming_soon_subtitle: {
+        en: "You haven't been charged, but you'll be the first to know once it's ready.",
+        vi: "Bạn chưa bị trừ tiền, nhưng bạn sẽ được thông báo đầu tiên sau khi mọi thứ đã sẵn sàng."
+    },
+    compact_profile_banner_title: { en: "Get Locket Gold", vi: "Thử Locket Gold" },
+    profile_banner_title: { en: "Locket Gold", vi: "Locket Gold" },
+    profile_banner_subtitle: { en: "Unlock the best of Locket", vi: "Mở khóa các tính năng tốt nhất của Locket" },
+    completed_title: { en: "Welcome to Gold!", vi: "Chào mừng bạn đến với Locket Gold!" },
+    completed_subtitle: {
+        en: "You now have access to all Locket Gold features. We're always adding more benefits, so check back soon.",
+        vi: "Giờ đây bạn đã có quyền truy cập tất cả các tính năng của Locket Gold!"
+    },
+    completed_button_title: { en: "Done", vi: "Xong" },
+    early_access_title: { en: "Early access!", vi: "Truy cập sớm!" },
+    primary_features: [
+        { emoji: "🚫", title: { en: "Remove ads", vi: "Không có quảng cáo!" }, subtitle: { en: "Never see an ad in History!", vi: "Không bao giờ nhìn thấy một quảng cáo nào nữa" } },
+        { emoji: "🎥", title: { en: "Video Lockets", vi: "Video Lockets" }, subtitle: { en: "Record short video clips!", vi: "Ghi lại các video clip ngắn!" }, early_access: true },
+        { emoji: "👀", title: { en: "Locket views", vi: "Lượt xem Locket" }, subtitle: { en: "See who's opened your Lockets", vi: "Xem những người đã mở Locket của bạn" } },
+        { emoji: "🏞️", title: { en: "Upload from camera roll", vi: "Tải lên từ cuộn camera" }, subtitle: { en: "Share memories from your library", vi: "Chia sẻ các kỷ niệm từ thư viện của bạn" } },
+        { emoji: "❤️‍🔥", title: { en: "Unlimited friends", vi: "Thêm bạn bè tùy ý" }, subtitle: { en: "Add as many friends as you'd like!", vi: "Thêm bao nhiêu bạn bè tùy ý!" }, early_access: true },
+        { emoji: "💛", title: { en: "Custom app icon", vi: "Biểu tượng ứng dụng tùy chỉnh" }, subtitle: { en: "Decorate your Home Screen", vi: "Trang trí Màn hình chính của bạn" } },
+        { emoji: "💬", title: { en: "Send longer captions", vi: "Gửi phụ đề dài hơn" }, subtitle: { en: "Type even more on your photos!", vi: "Điền nhiều nội dung hơn nữa trên các ảnh của bạn!" } }
+    ],
+    secondary_features: [
+        { emoji: "🆕", title: { en: "Early product updates", vi: "Truy cập tính năng mới sớm hơn" } },
+        { emoji: "🎁", title: { en: "Monthly feature drops", vi: "Phát hành tính năng mới hằng tháng" } },
+        { emoji: "🏅", title: { en: "Membership badge", vi: "Huy hiệu thành viên" } }
+    ],
+    offering_kind: "prod",
+    plans: [
+        { title: { en: "1 Year", vi: "1 năm" }, package: "locket_1600_1y" },
+        { title: { en: "1 Month", vi: "1 tháng" }, package: "locket_199_1m" }
+    ]
+};
+
+function applyPaywallAndRemoteKeys(entries) {
+    if (!entries || typeof entries !== "object") return;
+
+    // 1. Paywall config & Gold entitlement
+    Object.assign(entries, {
+        paywall_config: JSON.stringify(paywallConfigPayload),
+        purchases_enabled: "true",
+        purchases_entitlement: "Gold",
+        paywall_local_trial_unlocked: "true",
+        test_flight_purchase_override_enabled: "true",
+        gold_subscription_override: "true",
+        profile_gold_banner_features_enabled: "true",
+        android_subscribe_gold_button_enabled: "false",
+        profile_badge_visible: "true",
+        is_gold: "true", has_gold: "true", is_gold_user: "true",
+        user_is_gold: "true", gold_user: "true", gold_active: "true"
+    });
+
+    // 2. Paywall presentation & upsell (tắt hết popup)
+    entries.paywall_presentation_config = JSON.stringify({
+        uid: "v1_no_popup", onboarding: false, after_sent_moment: false,
+        after_moment: false, after_capture: false, on_foreground: false,
+        holiday_effects: false, camera_filters: false, camera_filter: false,
+        filters: false, filter: false, ai_filter: false, ai_filters: false,
+        filtered_image: false, filtered_images: false, generate_filtered_image: false,
+        interval: 2592000, profile_banner: true
+    });
+
+    entries.upsell_features = JSON.stringify({
+        app_icon_picker: false, camera_roll: false, camera_theme: false,
+        locket_views: false, remove_ads: false, custom_widget_frames: false,
+        unlimited_friends: false, filter: false, filters: false,
+        camera_filter: false, camera_filters: false,
+        holiday_filter: false, holiday_filters: false, holiday_effects: false,
+        ai_filter: false, ai_filters: false
+    });
+
+    // 3. Feature gates — badge & entitlement keys
+    var fg = {};
+    try { fg = JSON.parse(entries.feature_gates || "{}"); } catch (e) { fg = {}; }
+    Object.assign(fg, {
+        app_icon_picker: "enabled", appIconPicker: "enabled",
+        camera_roll: "enabled", cameraRoll: "enabled",
+        camera_roll_video: "enabled", cameraRollVideo: "enabled",
+        camera_roll_video_upload: "enabled", cameraRollVideoUpload: "enabled",
+        locket_views: "enabled", locketViews: "enabled",
+        moment_views: "enabled", momentViews: "enabled",
+        moment_view: "enabled", momentView: "enabled",
+        long_captions: "enabled", longCaptions: "enabled",
+        unlimited_friends: "enabled", unlimitedFriends: "enabled",
+        profile_badge: "enabled", profileBadge: "enabled",
+        gold_badge: "enabled", goldBadge: "enabled",
+        gold_since: "enabled", gold_since_badge: "enabled", goldSinceBadge: "enabled",
+        gold_member_since: "enabled", show_gold_since: "enabled",
+        profile_gold_badge: "enabled", profile_gold_card: "enabled",
+        gold_membership_card: "enabled", gold_card: "enabled",
+        profile_badge_visible: "enabled", gold_badge_profile_menu: "enabled",
+        remove_ads: "enabled", removeAds: "enabled",
+        custom_widget_frames: "enabled", customWidgetFrames: "enabled",
+        close_friends: "enabled", closeFriends: "enabled",
+        best_friends: "enabled", bestFriends: "enabled",
+        send_to_self: "enabled", sendToSelf: "enabled",
+        send_to_self_only: "enabled", sendToSelfOnly: "enabled"
+    });
+    entries.feature_gates = JSON.stringify(fg);
+
+    // 4. Feature gate overrides — badge & Gold card
+    var go = {};
+    try { go = JSON.parse(entries.feature_gates_override || "{}"); } catch (e) { go = {}; }
+    Object.assign(go, {
+        profileBadge: true, gold_badge: true, goldBadge: true,
+        gold_since: true, gold_since_badge: true,
+        gold_member_since: true, show_gold_since: true,
+        profile_gold_badge: true, profile_gold_card: true,
+        gold_membership_card: true, gold_card: true,
+        profile_badge_visible: true, gold_badge_profile_menu: true
+    });
+    entries.feature_gates_override = JSON.stringify(go);
+}
+
+applyPaywallAndRemoteKeys(obj.entries);
+
+// ============================================================
+// 8. HÀM VẢ CỰC MẠNH
 // ============================================================
 function hamVaForceOverride(entries) {
     if (!entries || typeof entries !== "object") return;
@@ -747,12 +744,6 @@ function hamVaForceOverride(entries) {
     entries["user_is_gold"] = "true";
     entries["gold_user"] = "true";
     entries["gold_active"] = "true";
-    entries["purchases_enabled"] = "true";
-    entries["purchases_entitlement"] = "Gold";
-    entries["paywall_local_trial_unlocked"] = "true";
-    entries["test_flight_purchase_override_enabled"] = "true";
-    entries["gold_subscription_override"] = "true";
-    entries["paywall_config"] = JSON.stringify(paywallConfigPayload);
     entries["all_filters_free"] = "true";
     entries["unlocked_filters"] = "true";
     entries["free_filters_enabled"] = "true";
@@ -768,6 +759,27 @@ function hamVaForceOverride(entries) {
     entries["filter_paywall_enabled"] = "false";
     entries["camera_filter_paywall_enabled"] = "false";
     entries["filter_upsell_enabled"] = "false";
+
+    // Audio / Sound
+    entries["video_sound_enabled"] = "true";
+    entries["videoSoundEnabled"] = "true";
+    entries["camera_roll_video_sound_enabled"] = "true";
+    entries["cameraRollVideoSoundEnabled"] = "true";
+    entries["microphone_enabled"] = "true";
+    entries["microphoneEnabled"] = "true";
+    entries["camera_microphone_enabled"] = "true";
+    entries["cameraMicrophoneEnabled"] = "true";
+    entries["sound_enabled"] = "true";
+    entries["soundEnabled"] = "true";
+    entries["audio_enabled"] = "true";
+    entries["audioEnabled"] = "true";
+
+    // Purchases / entitlement
+    entries["purchases_enabled"] = "true";
+    entries["purchases_entitlement"] = "Gold";
+    entries["paywall_local_trial_unlocked"] = "true";
+    entries["test_flight_purchase_override_enabled"] = "true";
+    entries["gold_subscription_override"] = "true";
 
     entries["cache_ttl_seconds"] = "0";
     entries["client_cache_ttl_sec"] = "0";
